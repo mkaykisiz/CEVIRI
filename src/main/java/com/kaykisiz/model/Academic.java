@@ -13,6 +13,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  * 
  */
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Academic implements Serializable {
 
 	private static final long serialVersionUID = 1L;
