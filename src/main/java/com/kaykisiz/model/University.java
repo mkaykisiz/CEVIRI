@@ -18,21 +18,19 @@ public class University implements Serializable {
  
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private short adres_ID;
+	private short University_ID;
 	
 	
 	private String university_Name;
 
-	@OneToMany(mappedBy="university")
-	private List<Uye> uyeler;
 	
 	public short getAdres_ID() {
-		return adres_ID;
+		return University_ID;
 	}
 
 
 	public void setAdres_ID(short adres_ID) {
-		this.adres_ID = adres_ID;
+		this.University_ID = adres_ID;
 	}
 
 
@@ -46,13 +44,6 @@ public class University implements Serializable {
 	}
 
 
-	public List<Uye> getUyeler() {
-		return uyeler;
-	}
 
-
-	public void setUyeler(List<Uye> uyeler) {
-		this.uyeler = uyeler;
-	}
    
 }

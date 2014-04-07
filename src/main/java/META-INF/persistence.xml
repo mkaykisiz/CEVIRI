@@ -7,7 +7,6 @@
 	<persistence-unit name="primary" transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/datasources/PostgreSQLDS</jta-data-source>
-		<class>com.kaykisiz.model.Uye</class>
 		<class>com.kaykisiz.model.University</class>
 		<properties>
 			<!-- Properties for Hibernate -->
