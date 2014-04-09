@@ -17,32 +17,24 @@ public class University implements Serializable {
  
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private short University_ID;
-	
+	private short University_ID;	
 	
 	private String university_Name;
-
 	
 	public short getAdres_ID() {
 		return University_ID;
 	}
 
-
 	public void setAdres_ID(short adres_ID) {
 		this.University_ID = adres_ID;
 	}
-
 
 	public String getUniversity_Name() {
 		return university_Name;
 	}
 
-
 	public void setUniversity_Name(String university_Name) {
 		this.university_Name = university_Name;
 	}
-
-
-
    
 }

@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
  * 
  */
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
 public class Student implements Serializable {
 
 	private static final long serialVersionUID = 1L;

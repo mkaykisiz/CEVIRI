@@ -13,13 +13,22 @@ import org.hibernate.validator.constraints.NotEmpty;
  * 
  */
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
 public class Company implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int CompanyId;
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
 	@Column(length = 60)
 	private String name;
 	@Column(length = 250)

@@ -13,7 +13,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  * 
  */
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
 public class CompanyOfficial implements Serializable {
 
 	private static final long serialVersionUID = 1L;
