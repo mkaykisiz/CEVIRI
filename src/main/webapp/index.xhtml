@@ -8,16 +8,15 @@
 <h:head></h:head>
 <h:body>
 
-	<h:form enctype="multipart/form-data">  
-  
-    <p:messages showDetail="true"/>  
-  
-    <p:fileUpload value="#{fileBean.uploadedFile}" mode="simple"/>  
-  
-    <p:commandButton value="Submit" ajax="false" actionListener="#{fileBean.kaydet()}"/>  
-  
-</h:form>  
-                 
+	  <h:form enctype="multipart/form-data">
+		<p:fileUpload dragDropSupport="false" label="Dosya Seç" 
+			uploadLabel="Yükle" cancelLabel="İptal"
+			fileUploadListener="#{fileBean.yukle}"
+			allowTypes="/(\.|\/)(doc|docx|xls|xlsx|pdf|zip|war|rar|jpg|jpeg|gif|jar|avi|mp4|gz|mp3)$/"
+			sizeLimit="100000000"  />
+
+	</h:form> 
+               
 
 </h:body>
 </html>
