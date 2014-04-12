@@ -14,9 +14,13 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
-public class Academic implements Serializable {
+public class Academics implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	public Academics() {
+		super();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

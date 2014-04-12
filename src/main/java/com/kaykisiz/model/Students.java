@@ -1,26 +1,23 @@
 package com.kaykisiz.model;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
-import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 /**
- * Entity implementation class for Entity: CompanyOfficial
+ * Entity implementation class for Entity: Student
  * 
  */
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
-public class CompanyOfficial implements Serializable {
+public class Students implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int companyOfficialId;
+	private int studentId;
 	@Column(length = 25)
 	private String name;
 	@Column(length = 25)
@@ -31,13 +28,15 @@ public class CompanyOfficial implements Serializable {
 	private String mail;
 	@Column(length = 10)
 	private String telNumber;
+	@Size(min = 1, max = 10)
+	private byte studentPoint;
 
-	public int getCompanyOfficialId() {
-		return companyOfficialId;
+	public int getStudentId() {
+		return studentId;
 	}
 
-	public void setCompanyOfficialId(int companyOfficialId) {
-		this.companyOfficialId = companyOfficialId;
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 
 	public String getName() {
@@ -71,4 +70,13 @@ public class CompanyOfficial implements Serializable {
 	public void setTelNumber(String telNumber) {
 		this.telNumber = telNumber;
 	}
+
+	public byte getStudentPoint() {
+		return studentPoint;
+	}
+
+	public void setStudentPoint(byte studentPoint) {
+		this.studentPoint = studentPoint;
+	}
+
 }
