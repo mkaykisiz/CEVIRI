@@ -14,13 +14,9 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
-public class Companys implements Serializable {
+public class Company implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	public Companys() {
-		super();
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,6 +40,13 @@ public class Companys implements Serializable {
 	private String mail;
 	@Size(min = 1, max = 10)
 	private byte companyPoint;
+
+	@ManyToOne
+	@JoinColumn(name = "image_id")
+	private Image image;
+	@ManyToOne
+	@JoinColumn(name = "coverImages_id")
+	private CoverImage coverImage;
 
 	public int getCompanyId() {
 		return CompanyId;
@@ -75,5 +78,21 @@ public class Companys implements Serializable {
 
 	public void setCompanyPoint(byte companyPoint) {
 		this.companyPoint = companyPoint;
+	}
+
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+
+	public CoverImage getCoverImage() {
+		return coverImage;
+	}
+
+	public void setCoverImage(CoverImage coverImage) {
+		this.coverImage = coverImage;
 	}
 }

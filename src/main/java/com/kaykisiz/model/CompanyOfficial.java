@@ -1,42 +1,63 @@
 package com.kaykisiz.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
- * Entity implementation class for Entity: Student
+ * Entity implementation class for Entity: CompanyOfficial
  * 
  */
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
-public class Students implements Serializable {
+public class CompanyOfficial implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	public CompanyOfficial() {
+		super();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int studentId;
+	private int companyOfficialId;
+
 	@Column(length = 25)
 	private String name;
+
 	@Column(length = 25)
 	private String surname;
+
 	@Column(length = 50, nullable = false)
 	@NotEmpty(message = "e-mail adresi boş olamaz!")
 	@Email(message = "Lütfen geçerli bir e-mail adresi girin.")
 	private String mail;
+
 	@Column(length = 10)
 	private String telNumber;
-	@Size(min = 1, max = 10)
-	private byte studentPoint;
 
-	public int getStudentId() {
-		return studentId;
+	@ManyToOne
+	@JoinColumn(name = "company_id")
+	private Company company;
+
+	@ManyToOne
+	@JoinColumn(name = "image_id")
+	private Image image;
+
+	@ManyToOne
+	@JoinColumn(name = "coverImages_id")
+	private CoverImage coverImage;
+
+	public int getCompanyOfficialId() {
+		return companyOfficialId;
 	}
 
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
+	public void setCompanyOfficialId(int companyOfficialId) {
+		this.companyOfficialId = companyOfficialId;
 	}
 
 	public String getName() {
@@ -71,12 +92,28 @@ public class Students implements Serializable {
 		this.telNumber = telNumber;
 	}
 
-	public byte getStudentPoint() {
-		return studentPoint;
+	public Company getCompany() {
+		return company;
 	}
 
-	public void setStudentPoint(byte studentPoint) {
-		this.studentPoint = studentPoint;
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+
+	public CoverImage getCoverImage() {
+		return coverImage;
+	}
+
+	public void setCoverImage(CoverImage coverImage) {
+		this.coverImage = coverImage;
 	}
 
 }

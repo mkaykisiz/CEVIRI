@@ -4,24 +4,23 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import org.hibernate.validator.constraints.Length;
+
 /**
  * Entity implementation class for Entity: University
  *
  */
 @Entity
-public class Universitys implements Serializable {
+public class University implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
- 
-	public Universitys() {
-		super();
-	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private short University_ID;	
+	private short University_ID;
 	
+	@Column(length=70)
 	private String university_Name;
 	
 	public short getAdres_ID() {
