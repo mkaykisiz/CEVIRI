@@ -15,6 +15,10 @@ public class University implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
+	
+	public University() {
+		super();
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

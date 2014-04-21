@@ -18,6 +18,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Academic implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	public Academic() {
+		super();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,7 +60,7 @@ public class Academic implements Serializable {
 	@JoinColumn(name = "coverImages_id")
 	private CoverImage coverImage;
 
-	@OneToMany(mappedBy="academics")
+	@OneToMany(mappedBy="academic")
 	private List<AcademicsStudents> academicsStudents;
 
 	public int getAcademicId() {

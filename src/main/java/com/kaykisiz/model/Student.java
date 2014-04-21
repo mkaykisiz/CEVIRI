@@ -53,7 +53,7 @@ public class Student implements Serializable {
 	@JoinColumn(name = "coverImages_id")
 	private CoverImage coverImage;
 
-	@OneToMany(mappedBy="students")
+	@OneToMany(mappedBy="student")
 	private List<AcademicsStudents> academicsStudents;
 
 	public int getStudentId() {
