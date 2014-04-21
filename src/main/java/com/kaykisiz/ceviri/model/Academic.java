@@ -1,67 +1,74 @@
-package com.kaykisiz.model;
+package com.kaykisiz.ceviri.model;
 
 import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.Size;
-
 /**
- * Entity implementation class for Entity: Student
+ * Entity implementation class for Entity: Academic
  * 
  */
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
-public class Student implements Serializable {
+public class Academic implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	public Academic() {
+		super();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int studentId;
-
+	private int academicId;
+	
 	@Column(length = 25)
 	private String name;
-
+	
 	@Column(length = 25)
 	private String surname;
-
+	
 	@Column(length = 50, nullable = false)
 	@NotEmpty(message = "e-mail adresi boş olamaz!")
 	@Email(message = "Lütfen geçerli bir e-mail adresi girin.")
 	private String mail;
-
+	
 	@Column(length = 10)
 	private String telNumber;
-
+	
 	@Size(min = 1, max = 10)
-	private byte studentPoint;
-
+	private byte academicPoint;
+	
+	@ManyToOne
+	@JoinColumn(name = "title_id")
+	private Title title;
+	
 	@ManyToOne
 	@JoinColumn(name = "university_id")
 	private University university;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "image_id")
 	private Image image;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "coverImages_id")
 	private CoverImage coverImage;
 
-	@OneToMany(mappedBy="student")
+	@OneToMany(mappedBy="academic")
 	private List<AcademicsStudents> academicsStudents;
 
-	public int getStudentId() {
-		return studentId;
+	public int getAcademicId() {
+		return academicId;
 	}
 
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
+	public void setAcademicId(int academicId) {
+		this.academicId = academicId;
 	}
 
 	public String getName() {
@@ -96,12 +103,20 @@ public class Student implements Serializable {
 		this.telNumber = telNumber;
 	}
 
-	public byte getStudentPoint() {
-		return studentPoint;
+	public byte getAcademicPoint() {
+		return academicPoint;
 	}
 
-	public void setStudentPoint(byte studentPoint) {
-		this.studentPoint = studentPoint;
+	public void setAcademicPoint(byte academicPoint) {
+		this.academicPoint = academicPoint;
+	}
+
+	public Title getTitle() {
+		return title;
+	}
+
+	public void setTitle(Title title) {
+		this.title = title;
 	}
 
 	public University getUniversity() {
@@ -135,9 +150,6 @@ public class Student implements Serializable {
 	public void setAcademicsStudents(List<AcademicsStudents> academicsStudents) {
 		this.academicsStudents = academicsStudents;
 	}
+
 	
-	
-
-
-
 }

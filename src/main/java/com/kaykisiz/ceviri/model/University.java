@@ -1,4 +1,4 @@
-package com.kaykisiz.model;
+package com.kaykisiz.ceviri.model;
 
 import java.io.Serializable;
 

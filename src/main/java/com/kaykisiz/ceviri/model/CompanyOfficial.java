@@ -1,4 +1,4 @@
-package com.kaykisiz.model;
+package com.kaykisiz.ceviri.model;
 
 import java.io.Serializable;
 
@@ -9,60 +9,55 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * Entity implementation class for Entity: Firma
+ * Entity implementation class for Entity: CompanyOfficial
  * 
  */
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "mail"))
-public class Company implements Serializable {
+public class CompanyOfficial implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
 
-	public Company() {
+	public CompanyOfficial() {
 		super();
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int CompanyId;
+	private int companyOfficialId;
 
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-	@Column(length = 60)
+	@Column(length = 25)
 	private String name;
-	
-	@Column(length = 250)
-	private String address;
-	
+
+	@Column(length = 25)
+	private String surname;
+
 	@Column(length = 50, nullable = false)
 	@NotEmpty(message = "e-mail adresi boş olamaz!")
 	@Email(message = "Lütfen geçerli bir e-mail adresi girin.")
 	private String mail;
-	
-	@Size(min = 1, max = 10)
-	private byte companyPoint;
+
+	@Column(length = 10)
+	private String telNumber;
+
+	@ManyToOne
+	@JoinColumn(name = "company_id")
+	private Company company;
 
 	@ManyToOne
 	@JoinColumn(name = "image_id")
 	private Image image;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "coverImages_id")
 	private CoverImage coverImage;
 
-	public int getCompanyId() {
-		return CompanyId;
+	public int getCompanyOfficialId() {
+		return companyOfficialId;
 	}
 
-	public void setCompanyId(int companyId) {
-		CompanyId = companyId;
+	public void setCompanyOfficialId(int companyOfficialId) {
+		this.companyOfficialId = companyOfficialId;
 	}
 
 	public String getName() {
@@ -73,20 +68,36 @@ public class Company implements Serializable {
 		this.name = name;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getSurname() {
+		return surname;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
-	public byte getCompanyPoint() {
-		return companyPoint;
+	public String getMail() {
+		return mail;
 	}
 
-	public void setCompanyPoint(byte companyPoint) {
-		this.companyPoint = companyPoint;
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getTelNumber() {
+		return telNumber;
+	}
+
+	public void setTelNumber(String telNumber) {
+		this.telNumber = telNumber;
+	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
 	}
 
 	public Image getImage() {
@@ -104,4 +115,5 @@ public class Company implements Serializable {
 	public void setCoverImage(CoverImage coverImage) {
 		this.coverImage = coverImage;
 	}
+
 }

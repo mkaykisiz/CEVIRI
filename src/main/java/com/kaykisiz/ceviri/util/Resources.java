@@ -1,4 +1,4 @@
-package com.kaykisiz.util;
+package com.kaykisiz.ceviri.util;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;

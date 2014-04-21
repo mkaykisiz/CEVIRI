@@ -6,20 +6,20 @@
 	<persistence-unit name="primary" transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/datasources/PostgreSQLDS</jta-data-source>
-		<class>com.kaykisiz.model.Academic</class>
-		<class>com.kaykisiz.model.CompanyOfficial</class>
-		<class>com.kaykisiz.model.Company</class>
-		<class>com.kaykisiz.model.CoverImage</class>
-		<class>com.kaykisiz.model.DbFile</class>
-		<class>com.kaykisiz.model.Image</class>
-		<class>com.kaykisiz.model.Language</class>
-		<class>com.kaykisiz.model.MessageContent</class>
-		<class>com.kaykisiz.model.Message</class>
-		<class>com.kaykisiz.model.Student</class>
-		<class>com.kaykisiz.model.Title</class>
-		<class>com.kaykisiz.model.Translation</class>
-		<class>com.kaykisiz.model.University</class>
-		<class>com.kaykisiz.model.AcademicsStudents</class>
+		<class>com.kaykisiz.ceviri.model.Academic</class>
+		<class>com.kaykisiz.ceviri.model.CompanyOfficial</class>
+		<class>com.kaykisiz.ceviri.model.Company</class>
+		<class>com.kaykisiz.ceviri.model.CoverImage</class>
+		<class>com.kaykisiz.ceviri.model.DbFile</class>
+		<class>com.kaykisiz.ceviri.model.Image</class>
+		<class>com.kaykisiz.ceviri.model.Language</class>
+		<class>com.kaykisiz.ceviri.model.MessageContent</class>
+		<class>com.kaykisiz.ceviri.model.Message</class>
+		<class>com.kaykisiz.ceviri.model.Student</class>
+		<class>com.kaykisiz.ceviri.model.Title</class>
+		<class>com.kaykisiz.ceviri.model.Translation</class>
+		<class>com.kaykisiz.ceviri.model.University</class>
+		<class>com.kaykisiz.ceviri.model.AcademicsStudents</class>
 		<properties>
 			<!-- Properties for Hibernate -->
 			<property name="hibernate.hbm2ddl.auto" value="create" />
