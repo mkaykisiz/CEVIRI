@@ -8,66 +8,9 @@
 <h:head></h:head>
 <h:body>
 
-<p:dataTable id="dataTable" var="translate" value="#{translations}" sortMode="multiple" rows="25" paginator="true">  
-        <f:facet name="header">  
-            Çeviri Dosyaları
-        </f:facet>  
-  
-        <p:column sortBy="Konu" headerText="Model">  
-            <h:outputText value="#{translate.title}" />  
-        </p:column>  
-  
-        <p:column sortBy="Akademisyen" headerText="Year">  
-            <h:outputText value="#{translate.academic}" />  
-        </p:column>  
-  
-        <p:column sortBy="Öğrenci" headerText="Manufacturer">  
-            <h:outputText value="#{translate.student}" />  
-        </p:column>  
-  
-        <p:column sortBy="Yüklenme Tarihi" headerText="Color">  
-            <h:outputText value="#{translate.uploadDate}" />  
-        </p:column>  
-        
-        <p:column sortBy="Çevirilmiş/Çevirilmemiş" headerText="Color">  
-            <h:outputText value="#{translate.translated}" />  
-        </p:column>  
-        
-        <p:column sortBy="ÇeviriPuanı" headerText="Color">  
-            <h:outputText value="#{translate.translationPoint}" />  
-        </p:column>  
-        
-        <p:column sortBy="color" headerText="Color">  
-            <p:commandButton id="downloadLink" value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop)"   
-        icon="ui-icon-arrowthichk-s">  
-         <f:setPropertyActionListener value="#{translate}" target="#{fileDownloadController.selectedTranslation}" />  
-    <p:fileDownload value="#{fileDownloadController.FileDown()}" />      
-</p:commandButton>  
-  
-        </p:column>  
-    </p:dataTable> 
-<p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false">  
-    <p:graphicImage value="/design/ajaxloadingbar.gif" />  
-</p:dialog>  
-  
-<h:form id="form">  
-  
-<p:commandButton id="downloadLink" value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop)"   
-        icon="ui-icon-arrowthichk-s">  
-    <p:fileDownload value="#{fileDownloadController.file}" />  
-</p:commandButton>  
-  
-</h:form>  
-  
-        <script type="text/javascript">  
-function start() {  
-    PF('statusDialog').show();  
-}  
-  
-function stop() {  
-    PF('statusDialog').hide();  
-}  
-        </script>  
+ <p:selectOneMenu  >   
+            <f:selectItems value="#{titles}" var="_univ" itemLabel="#{_univ.title}" />  
+        </p:selectOneMenu>  
                
 
 </h:body>

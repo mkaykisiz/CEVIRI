@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-import org.hibernate.validator.constraints.Length;
-
 /**
  * Entity implementation class for Entity: University
  *
@@ -22,25 +20,26 @@ public class University implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private short University_ID;
+	private short UniversityID;
 	
 	@Column(length=70)
-	private String university_Name;
+	private String universityName;
+
+	public short getUniversityID() {
+		return UniversityID;
+	}
+
+	public void setUniversityID(short universityID) {
+		UniversityID = universityID;
+	}
+
+	public String getUniversityName() {
+		return universityName;
+	}
+
+	public void setUniversityName(String universityName) {
+		this.universityName = universityName;
+	}
 	
-	public short getAdres_ID() {
-		return University_ID;
-	}
-
-	public void setAdres_ID(short adres_ID) {
-		this.University_ID = adres_ID;
-	}
-
-	public String getUniversity_Name() {
-		return university_Name;
-	}
-
-	public void setUniversity_Name(String university_Name) {
-		this.university_Name = university_Name;
-	}
-   
+	
 }

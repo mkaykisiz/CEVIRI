@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Girişve Kayıt Ekranı</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description"
+		content="Login and Registration Form with HTML5 and CSS3" />
+	<meta name="keywords"
+		content="html5, css3, form, switch, animation, :target, pseudo-class" />
+	<meta name="author" content="Codrops" />
+	<link rel="stylesheet" type="text/css" href="../css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../css/style2.css" />
+	<link rel="stylesheet" type="text/css" href="../css/animate-custom.css" />
+</h:head>
+<h:body>
+	<div class="container">
+		<!-- Codrops top bar -->
+		<div class="codrops-top">
+			<span class="right"> <a href=" http://www.kaykisiz.com/">
+					<strong>Mehmet KAYKISIZ</strong>
+			</a>
+			</span>
+			<div class="clr"></div>
+		</div>
+		<!--/ Codrops top bar -->
+		<header>
+		<h1>
+			CEVIRMEN VE FIRMALARIN BULUSTUGU<span> TEK PLATFORM</span>
+		</h1>
+		<nav class="codrops-demos"> <span>Aramızdan Biri Değilsen
+			<strong>"KAYIT OL"</strong>, Bize KAtıl
+		</span> <a href="index.xhtml" class="current-demo">AnaSayfa</a> </nav> </header>
+		<section>
+		<div id="container_demo">
+			<a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor"
+				id="tologin"></a>
+			<div id="wrapper">
+				<div id="login" class="animate form">
+					<form action="mysuperscript.php" autocomplete="on">
+						<h1>GIRIS YAP</h1>
+						<p>
+							<label for="username" class="uname" data-icon="u"> Mail
+								Adresin </label> <input id="username" name="username"
+								required="required" type="text" placeholder="mymail@mail.com" />
+						</p>
+						<p>
+							<label for="password" class="youpasswd" data-icon="p">
+								Parolan </label> <input id="password" name="password"
+								required="required" type="password" placeholder="eg. X8df!90EO" />
+						</p>
+						<p class="login button">
+							<input type="submit" value="Login" />
+						</p>
+						<p class="change_link">
+							<a href="#toregister" class="to_register">KAYIT OL</a>
+						</p>
+					</form>
+				</div>
+
+				<div id="register" class="animate form">
+					<form action="mysuperscript.php" autocomplete="on">
+						<h1>KAYIT OL</h1>
+						<p>
+							<label for="usernamesignup" class="uname" data-icon="u">Ad </label> 
+							<input id="usernamesignup" name="usernamesignup"
+								required="required" type="text" placeholder="Ad" />
+						</p>
+						<p>
+							<label for="usersurnamesignup" class="uname" data-icon="u">Soyad </label> 
+							<input id="usernamesignup" name="usernamesignup"
+								required="required" type="text" placeholder="Soyad" />
+						</p>
+						<p>
+							<label for="passwordsignup" class="youpasswd" data-icon="p">Parola
+							</label> <input id="passwordsignup" name="passwordsignup"
+								required="required" type="password" placeholder="eg. X8df!90EO" />
+						</p>
+						<p>
+							<label for="PhoneNumber" class="youpasswd"
+								data-icon="u">Telefon Numarası</label> <input
+								id="passwordsignup_confirm" name="passwordsignup_confirm"
+								required="required" type="password"
+								placeholder="eg. 5xx xxx xx xx" />
+						</p>
+						<p>
+							<label for="mail" data-icon="u">Mail </label> <input
+								id="passwordsignup_confirm" name="passwordsignup_confirm"
+								required="required" placeholder="mymail@mail.com"/>
+						</p>
+
+						<p>
+							<label for="selectUniversity" class="youpasswd" data-icon="check">Üniversite
+							</label>
+							<p:selectOneMenu>
+								<f:selectItems value="#{universities}" var="_univ"
+									itemLabel="#{_univ.universityName}" />
+							</p:selectOneMenu>
+						</p>
+						<p class="signin button">
+							<input type="submit" value="KAYIT OL" />
+						</p>
+						<p class="change_link">
+							<a href="#tologin" class="to_register">Giriş Yap</a>
+						</p>
+					</form>
+				</div>
+
+			</div>
+		</div>
+		</section>
+	</div>
+</h:body>
+</html>

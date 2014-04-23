@@ -6,8 +6,8 @@
 	<persistence-unit name="primary" transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/datasources/PostgreSQLDS</jta-data-source>
+		
 		<class>com.kaykisiz.ceviri.model.Academic</class>
-		<class>com.kaykisiz.ceviri.model.CompanyOfficial</class>
 		<class>com.kaykisiz.ceviri.model.Company</class>
 		<class>com.kaykisiz.ceviri.model.CoverImage</class>
 		<class>com.kaykisiz.ceviri.model.DbFile</class>
@@ -22,7 +22,7 @@
 		<class>com.kaykisiz.ceviri.model.AcademicsStudents</class>
 		<properties>
 			<!-- Properties for Hibernate -->
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
 		</properties>
 	</persistence-unit>

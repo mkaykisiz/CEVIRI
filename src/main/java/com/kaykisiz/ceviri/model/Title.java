@@ -34,12 +34,12 @@ public class Title implements Serializable {
 		Id = id;
 	}
 
-	public String getUrl() {
+	public String getTitle() {
 		return title;
 	}
 
-	public void setUrl(String title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
-   
+
 }

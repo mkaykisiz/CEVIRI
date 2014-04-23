@@ -32,7 +32,7 @@ public class Message implements Serializable {
 	private Student student;
 	
 	@ManyToOne
-	private CompanyOfficial companyOfficial;
+	private Company company;
 
 	public short getId() {
 		return id;
@@ -66,12 +66,12 @@ public class Message implements Serializable {
 		this.student = student;
 	}
 
-	public CompanyOfficial getCompanyOfficial() {
-		return companyOfficial;
+	public Company getCompany() {
+		return company;
 	}
 
-	public void setCompanyOfficial(CompanyOfficial companyOfficial) {
-		this.companyOfficial = companyOfficial;
+	public void setCompanyOfficial(Company company) {
+		this.company = company;
 	}
 	
 	
