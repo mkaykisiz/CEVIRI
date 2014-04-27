@@ -29,6 +29,10 @@ public class Student implements Serializable {
 
 	@Column(length = 25)
 	private String surname;
+	
+	@Column(length=16)
+	@Size(max=16)
+	private String parola;
 
 	@Column(length = 50, nullable = false)
 	@NotEmpty(message = "e-mail adresi boş olamaz!")
@@ -53,8 +57,11 @@ public class Student implements Serializable {
 	@JoinColumn(name = "coverImages_id")
 	private CoverImage coverImage;
 
-	@OneToMany(mappedBy="student")
-	private List<AcademicsStudents> academicsStudents;
+	@OneToMany(mappedBy="studentAcademic")
+	private List<AcademicStudent> academicsStudents;
+	
+	@OneToMany(mappedBy = "studentLanguage")
+	private List<StudentLanguage> studentLanguages;
 
 	public int getStudentId() {
 		return studentId;
@@ -128,12 +135,28 @@ public class Student implements Serializable {
 		this.coverImage = coverImage;
 	}
 
-	public List<AcademicsStudents> getAcademicsStudents() {
+	public List<AcademicStudent> getAcademicsStudents() {
 		return academicsStudents;
 	}
 
-	public void setAcademicsStudents(List<AcademicsStudents> academicsStudents) {
+	public void setAcademicsStudents(List<AcademicStudent> academicsStudents) {
 		this.academicsStudents = academicsStudents;
+	}
+
+	public String getParola() {
+		return parola;
+	}
+
+	public void setParola(String parola) {
+		this.parola = parola;
+	}
+
+	public List<StudentLanguage> getStudentLanguages() {
+		return studentLanguages;
+	}
+
+	public void setStudentLanguages(List<StudentLanguage> studentLanguages) {
+		this.studentLanguages = studentLanguages;
 	}
 	
 	

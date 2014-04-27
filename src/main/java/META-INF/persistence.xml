@@ -19,10 +19,12 @@
 		<class>com.kaykisiz.ceviri.model.Title</class>
 		<class>com.kaykisiz.ceviri.model.Translation</class>
 		<class>com.kaykisiz.ceviri.model.University</class>
-		<class>com.kaykisiz.ceviri.model.AcademicsStudents</class>
+		<class>com.kaykisiz.ceviri.model.AcademicStudent</class>
+		<class>com.kaykisiz.ceviri.model.AcademicLanguage</class>
+		<class>com.kaykisiz.ceviri.model.StudentLanguage</class>
 		<properties>
 			<!-- Properties for Hibernate -->
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value=update />
 			<property name="hibernate.show_sql" value="true" />
 		</properties>
 	</persistence-unit>

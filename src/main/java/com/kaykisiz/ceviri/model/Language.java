@@ -1,6 +1,7 @@
 package com.kaykisiz.ceviri.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -25,6 +26,12 @@ public class Language implements Serializable {
 	
 	@Column(length=180)
 	private String language;
+	
+	@OneToMany(mappedBy="languageacademic")
+	private List<AcademicLanguage> academicLanguages;
+	
+	@OneToMany(mappedBy = "languageStudent")
+	private List<StudentLanguage> studentLanguages;
 
 	public int getId() {
 		return Id;
@@ -34,12 +41,30 @@ public class Language implements Serializable {
 		Id = id;
 	}
 
-	public String getUrl() {
+	public String getLanguage() {
 		return language;
 	}
 
-	public void setUrl(String url) {
-		this.language = url;
+	public void setLanguage(String language) {
+		this.language = language;
 	}
+
+	public List<AcademicLanguage> getAcademicLanguages() {
+		return academicLanguages;
+	}
+
+	public void setAcademicLanguages(List<AcademicLanguage> academicLanguages) {
+		this.academicLanguages = academicLanguages;
+	}
+
+	public List<StudentLanguage> getStudentLanguages() {
+		return studentLanguages;
+	}
+
+	public void setStudentLanguages(List<StudentLanguage> studentLanguages) {
+		this.studentLanguages = studentLanguages;
+	}
+
+	
 	
 }

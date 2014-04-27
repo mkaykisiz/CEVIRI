@@ -17,7 +17,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Company implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
 
 	public Company() {
 		super();
@@ -27,32 +26,28 @@ public class Company implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int CompanyId;
 
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
+	@Column(length = 16)
+	@Size(max = 16)
+	private String parola;
 
 	@Column(length = 60)
 	private String name;
-	
+
 	@Column(length = 250)
 	private String address;
-	
+
 	@Column(length = 50, nullable = false)
 	@NotEmpty(message = "e-mail adresi boş olamaz!")
 	@Email(message = "Lütfen geçerli bir e-mail adresi girin.")
 	private String mail;
-	
+
 	@Size(min = 1, max = 10)
 	private byte companyPoint;
 
 	@ManyToOne
 	@JoinColumn(name = "image_id")
 	private Image image;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "coverImages_id")
 	private CoverImage coverImage;
@@ -104,4 +99,13 @@ public class Company implements Serializable {
 	public void setCoverImage(CoverImage coverImage) {
 		this.coverImage = coverImage;
 	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
 }

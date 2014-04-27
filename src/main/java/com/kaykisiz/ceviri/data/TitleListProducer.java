@@ -16,9 +16,11 @@ import javax.persistence.criteria.Root;
 
 import com.kaykisiz.ceviri.model.Title;
 
+//Ünvan Listesini getirir.
+
 @RequestScoped
 public class TitleListProducer {
-	
+
 	@Inject
 	private EntityManager entityManager;
 
@@ -28,7 +30,7 @@ public class TitleListProducer {
 	@Named
 	public List<Title> getTitles() {
 		return titles;
-	}
+	} 
 
 	public void onTitleListChanged(
 			@Observes(notifyObserver = Reception.IF_EXISTS) final Title titles) {
@@ -40,9 +42,8 @@ public class TitleListProducer {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Title> criteriaQuery = criteriaBuilder
 				.createQuery(Title.class);
-		Root<Title> university = criteriaQuery.from(Title.class);
-		criteriaQuery.select(university);
+		Root<Title> titl = criteriaQuery.from(Title.class);
+		criteriaQuery.select(titl);
 		titles = entityManager.createQuery(criteriaQuery).getResultList();
 	}
-
 }

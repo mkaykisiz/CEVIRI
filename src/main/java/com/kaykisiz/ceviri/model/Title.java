@@ -9,7 +9,6 @@ import javax.persistence.*;
  *
  */
 @Entity
-
 public class Title implements Serializable {
 
 	
@@ -21,17 +20,17 @@ public class Title implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int Id;
+	private short titleId;
 	
-	@Column(length=180)
+	@Column(length=20)
 	private String title;
 
-	public int getId() {
-		return Id;
+	public short getTitleId() {
+		return titleId;
 	}
 
-	public void setId(int id) {
-		Id = id;
+	public void setTitleId(short titleId) {
+		this.titleId = titleId;
 	}
 
 	public String getTitle() {
@@ -42,4 +41,6 @@ public class Title implements Serializable {
 		this.title = title;
 	}
 
+	
+	
 }

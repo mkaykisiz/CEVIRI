@@ -34,7 +34,7 @@
 			CEVIRMEN VE FIRMALARIN BULUSTUGU<span> TEK PLATFORM</span>
 		</h1>
 		<nav class="codrops-demos"> <span>Aramızdan Biri Değilsen
-			<strong>"KAYIT OL"</strong>, Bize KAtıl
+			<strong>"KAYIT OL"</strong>, Bize Katıl
 		</span> <a href="index.xhtml" class="current-demo">AnaSayfa</a> </nav> </header>
 		<section>
 		<div id="container_demo">
@@ -64,59 +64,62 @@
 				</div>
 
 				<div id="register" class="animate form">
-					<form action="mysuperscript.php" autocomplete="on">
+					<h:form>
 						<h1>KAYIT OL</h1>
+						<p:messages id="registerAcademicMessages" showDetail="false"
+							autoUpdate="true" closable="true" />
 						<p>
-							<label for="usernamesignup" class="uname" data-icon="u">Ad </label> 
-							<input id="usernamesignup" name="usernamesignup"
-								required="required" type="text" placeholder="Ad" />
+							<h:outputLabel class="uname" data-icon="u">Ad </h:outputLabel>
+							<h:inputText value="#{academic.name}" required="required"
+								type="text" placeholder="Ad" />
 						</p>
 						<p>
-							<label for="usersurnamesignup" class="uname" data-icon="u">Soyad </label> 
-							<input id="usernamesignup" name="usernamesignup"
-								required="required" type="text" placeholder="Soyad" />
+							<h:outputLabel class="uname" data-icon="u">Soyad </h:outputLabel>
+							<h:inputText value="#{academic.surname}" required="required"
+								type="text" placeholder="Soyad" />
 						</p>
 						<p>
-							<label for="passwordsignup" class="youpasswd" data-icon="p">Parola
-							</label> <input id="passwordsignup" name="passwordsignup"
-								required="required" type="password" placeholder="eg. X8df!90EO" />
+							<h:outputLabel class="youpasswd" data-icon="p">Parola
+							</h:outputLabel>
+							<h:inputText value="#{academic.parola}" required="required"
+								type="password" placeholder="eg. X8df!90EO" />
 						</p>
 						<p>
-							<label for="PhoneNumber" class="youpasswd"
-								data-icon="u">Telefon Numarası</label> <input
-								id="passwordsignup_confirm" name="passwordsignup_confirm"
-								required="required" type="password"
-								placeholder="eg. 5xx xxx xx xx" />
+							<h:outputLabel for="PhoneNumber" class="youpasswd" data-icon="u">Telefon Numarası</h:outputLabel>
+							<h:inputText value="#{academic.telNumber}" required="required"
+								type="password" placeholder="eg. 5xx xxx xx xx" />
 						</p>
 						<p>
-							<label for="mail" data-icon="u">Mail </label> <input
-								id="passwordsignup_confirm" name="passwordsignup_confirm"
-								required="required" placeholder="mymail@mail.com"/>
+							<h:outputLabel data-icon="u">Mail </h:outputLabel>
+							<h:inputText value="#{academic.mail}" required="required"
+								placeholder="mymail@mail.com" />
 						</p>
-
 						<p>
-							<label for="selectUniversity" class="youpasswd" data-icon="check">Üniversite
-							</label>
-							<p:selectOneMenu>
+							<h:outputLabel>Ünvan</h:outputLabel>
+							<p:selectOneMenu value="#{academic.title.titleId}" >
+								<f:selectItems value="#{titles}" var="_titl"
+									itemLabel="#{_titl.title}" itemValue="#{_titl.titleId}" />
+							</p:selectOneMenu>
+						<p>
+							<h:outputLabel>Üniversite
+							</h:outputLabel>
+							<p:selectOneMenu value="#{academic.university.universityId}">
 								<f:selectItems value="#{universities}" var="_univ"
-									itemLabel="#{_univ.universityName}" />
+									itemLabel="#{_univ.universityName}"
+									itemValue="#{_univ.universityId}" />
 							</p:selectOneMenu>
 						</p>
-						<p>
-							<label for="selectTitle" class="youpasswd" data-icon="check">Ünvan
-							</label>
-							<p:selectOneMenu>
-								<f:selectItems value="#{titles}" var="_tit"
-									itemLabel="#{_tit.title}" />
-							</p:selectOneMenu>
+						
 						</p>
 						<p class="signin button">
-							<input type="submit" value="KAYIT OL" />
+							<p:commandButton value="KAYIT OL"
+								action="#{academicRegister.registerAcademic()}" />
 						</p>
 						<p class="change_link">
 							<a href="#tologin" class="to_register">Giriş Yap</a>
 						</p>
-					</form>
+						
+					</h:form>
 				</div>
 
 			</div>

@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Academic implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	public Academic() {
 		super();
 	}
@@ -26,42 +26,49 @@ public class Academic implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int academicId;
-	
+
 	@Column(length = 25)
 	private String name;
-	
+
 	@Column(length = 25)
 	private String surname;
-	
+
+	@Column(length = 16)
+	@Size(max = 16)
+	private String parola;
+
 	@Column(length = 50, nullable = false)
 	@NotEmpty(message = "e-mail adresi boş olamaz!")
 	@Email(message = "Lütfen geçerli bir e-mail adresi girin.")
 	private String mail;
-	
+
 	@Column(length = 10)
 	private String telNumber;
-	
-	@Size(min = 1, max = 10)
-	private byte academicPoint;
-	
+
+	@Column(length=2)
+	private String academicPoint;
+
 	@ManyToOne
-	@JoinColumn(name = "title_id")
+	@JoinColumn(name = "titleId")
 	private Title title;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "university_id")
+	@JoinColumn(name = "universityId")
 	private University university;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "image_id")
 	private Image image;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "coverImages_id")
 	private CoverImage coverImage;
 
-	@OneToMany(mappedBy="academic")
-	private List<AcademicsStudents> academicsStudents;
+	@OneToMany(mappedBy = "academicStudent")
+	private List<AcademicStudent> academicsStudents;
+	
+	@OneToMany(mappedBy = "academicLanguage")
+	private List<AcademicLanguage> academicLanguages;
 
 	public int getAcademicId() {
 		return academicId;
@@ -103,11 +110,11 @@ public class Academic implements Serializable {
 		this.telNumber = telNumber;
 	}
 
-	public byte getAcademicPoint() {
+	public String getAcademicPoint() {
 		return academicPoint;
 	}
 
-	public void setAcademicPoint(byte academicPoint) {
+	public void setAcademicPoint(String academicPoint) {
 		this.academicPoint = academicPoint;
 	}
 
@@ -143,12 +150,28 @@ public class Academic implements Serializable {
 		this.coverImage = coverImage;
 	}
 
-	public List<AcademicsStudents> getAcademicsStudents() {
+	public List<AcademicStudent> getAcademicsStudents() {
 		return academicsStudents;
 	}
 
-	public void setAcademicsStudents(List<AcademicsStudents> academicsStudents) {
+	public void setAcademicsStudents(List<AcademicStudent> academicsStudents) {
 		this.academicsStudents = academicsStudents;
+	}
+
+	public String getParola() {
+		return parola;
+	}
+
+	public void setParola(String parola) {
+		this.parola = parola;
+	}
+
+	public List<AcademicLanguage> getAcademicLanguages() {
+		return academicLanguages;
+	}
+
+	public void setAcademicLanguages(List<AcademicLanguage> academicLanguages) {
+		this.academicLanguages = academicLanguages;
 	}
 
 	

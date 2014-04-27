@@ -20,17 +20,17 @@ public class University implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private short UniversityID;
+	private short UniversityId;
 	
 	@Column(length=70)
 	private String universityName;
 
-	public short getUniversityID() {
-		return UniversityID;
+	public short getUniversityId() {
+		return UniversityId;
 	}
 
-	public void setUniversityID(short universityID) {
-		UniversityID = universityID;
+	public void setUniversityId(short universityId) {
+		UniversityId = universityId;
 	}
 
 	public String getUniversityName() {
