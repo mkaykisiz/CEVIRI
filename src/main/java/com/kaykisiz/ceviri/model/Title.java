@@ -1,7 +1,6 @@
 package com.kaykisiz.ceviri.model;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
 
 /**
@@ -20,16 +19,17 @@ public class Title implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private short titleId;
+	private int titleId;
 	
 	@Column(length=20)
 	private String title;
+	
 
-	public short getTitleId() {
+	public int getTitleId() {
 		return titleId;
 	}
 
-	public void setTitleId(short titleId) {
+	public void setTitleId(int titleId) {
 		this.titleId = titleId;
 	}
 

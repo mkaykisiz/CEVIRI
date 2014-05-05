@@ -7,11 +7,10 @@
 
 <h:head></h:head>
 <h:body>
-
- <p:selectOneMenu  >   
-            <f:selectItems value="#{titles}" var="_univ" itemLabel="#{_univ.title}" />  
-        </p:selectOneMenu>  
-               
+<h:form>
+ <p:inputText value="#{university.universityName}"/>
+<p:commandButton action="#{universityRegister.registerAcademic()}"/>
+</h:form >               
 
 </h:body>
 </html>

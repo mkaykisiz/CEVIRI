@@ -69,48 +69,40 @@
 						<p:messages id="registerAcademicMessages" showDetail="false"
 							autoUpdate="true" closable="true" />
 						<p>
-							<h:outputLabel class="uname" data-icon="u">Ad </h:outputLabel>
-							<h:inputText value="#{academic.name}" required="required"
-								type="text" placeholder="Ad" />
+							<h:outputLabel value="Ad" />
+							<p:inputText value="#{academic.name}" />
 						</p>
 						<p>
-							<h:outputLabel class="uname" data-icon="u">Soyad </h:outputLabel>
-							<h:inputText value="#{academic.surname}" required="required"
-								type="text" placeholder="Soyad" />
+							<h:outputLabel value="Soyad"/>
+							<p:inputText value="#{academic.surname}"/>
 						</p>
 						<p>
-							<h:outputLabel class="youpasswd" data-icon="p">Parola
-							</h:outputLabel>
-							<h:inputText value="#{academic.parola}" required="required"
-								type="password" placeholder="eg. X8df!90EO" />
+							<h:outputLabel value="Parola"/>
+							<p:password value="#{academic.parola}" feedback="true" inline="true" />
 						</p>
 						<p>
-							<h:outputLabel for="PhoneNumber" class="youpasswd" data-icon="u">Telefon Numarası</h:outputLabel>
-							<h:inputText value="#{academic.telNumber}" required="required"
-								type="password" placeholder="eg. 5xx xxx xx xx" />
+							<h:outputLabel value="Telefon Numarası (5xx xxx xx xx)"/>
+							<p:inputText value="#{academic.telNumber}" />
 						</p>
 						<p>
-							<h:outputLabel data-icon="u">Mail </h:outputLabel>
-							<h:inputText value="#{academic.mail}" required="required"
-								placeholder="mymail@mail.com" />
+							<h:outputLabel value="Mail"/>
+							<p:inputText value="#{academic.mail}"/>
 						</p>
 						<p>
-							<h:outputLabel>Ünvan</h:outputLabel>
-							<p:selectOneMenu value="#{academic.title.titleId}" >
-								<f:selectItems value="#{titles}" var="_titl"
-									itemLabel="#{_titl.title}" itemValue="#{_titl.titleId}" />
-							</p:selectOneMenu>
-						<p>
-							<h:outputLabel>Üniversite
-							</h:outputLabel>
-							<p:selectOneMenu value="#{academic.university.universityId}">
+							<h:outputLabel value="Üniversite" />
+							<p:selectOneMenu id="UniversitySelect" value="#{academicRegister.selectedUniversityId}">
 								<f:selectItems value="#{universities}" var="_univ"
-									itemLabel="#{_univ.universityName}"
-									itemValue="#{_univ.universityId}" />
+									itemLabel="#{_univ.universityName}" itemValue="#{_univ.universityId}"/>
+							</p:selectOneMenu>
+						</p>
+						<p>
+							<h:outputLabel value="Ünvan" />
+							<p:selectOneMenu id="TitleSelect" value="#{academicRegister.selectedTitleId}">
+								<f:selectItems value="#{titles}" var="_title"
+									itemLabel="#{_title.title}" itemValue="#{_title.titleId}"/>
 							</p:selectOneMenu>
 						</p>
 						
-						</p>
 						<p class="signin button">
 							<p:commandButton value="KAYIT OL"
 								action="#{academicRegister.registerAcademic()}" />

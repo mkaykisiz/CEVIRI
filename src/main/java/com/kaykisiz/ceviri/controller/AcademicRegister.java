@@ -11,6 +11,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 
+import com.kaykisiz.ceviri.data.TitleListProducer;
+import com.kaykisiz.ceviri.data.UniversityListProducer;
 import com.kaykisiz.ceviri.model.Academic;
 
 @Stateful
@@ -28,38 +30,110 @@ public class AcademicRegister {
 
 	private Academic academic;
 
+	private int selectedUniversityId;
+	
+	private int selectedTitleId;
+
+	@Inject
+	private UniversityListProducer universtiyListProducer;
+	
+	@Inject
+	private TitleListProducer titleListProducer;
+
 	@Named
 	@Produces
 	public Academic getAcademic() {
 		return academic;
 	}
 
-	public void registerAcademic() {
+		
+	public int getSelectedTitleId() {
+		return selectedTitleId;
+	}
 
+
+
+	public void setSelectedTitleId(int selectedTitleId) {
+		this.selectedTitleId = selectedTitleId;
+	}
+
+
+
+	public TitleListProducer getTitleListProducer() {
+		return titleListProducer;
+	}
+
+
+
+	public void setTitleListProducer(TitleListProducer titleListProducer) {
+		this.titleListProducer = titleListProducer;
+	}
+
+
+
+	public int getSelectedUniversityId() {
+		return selectedUniversityId;
+	}
+
+	public void setSelectedUniversityId(int selectedUniversityId) {
+		this.selectedUniversityId = selectedUniversityId;
+	}	
+
+	public UniversityListProducer getUniverstiyListProducer() {
+		return universtiyListProducer;
+	}
+
+	public void setUniverstiyListProducer(
+			UniversityListProducer universtiyListProducer) {
+		this.universtiyListProducer = universtiyListProducer;
+	}
+
+	public String registerAcademic() {
+		for (int i = 0; i < universtiyListProducer.getUniversities().size(); i++) {
+			if (selectedUniversityId==universtiyListProducer.getUniversities().get(i).getUniversityId()) {
+				academic.setUniversity(universtiyListProducer.getUniversities().get(i));
+				break;
+			}
+		}
+		for (int i = 0; i < titleListProducer.getTitles().size(); i++) {
+			if (selectedTitleId==titleListProducer.getTitles().get(i).getTitleId()) {
+				academic.setTitle(titleListProducer.getTitles().get(i));
+				break;
+			}
+		}
+		
 		try {
 			entityManager.persist(academic);
 			academicEvent.fire(academic);
 			facesContext.addMessage(null, new FacesMessage(
 					FacesMessage.SEVERITY_INFO,
-					"Bölüm kaydı başarıyla yapıldı.", " "));
+					"Bölüm kaydı başarıyla yapıldı.", academic.getName()
+							+ " "+ academic.getSurname()
+							+ "Aramıza Hoş Gelidin"));
+			
 			initAcademic();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-
+			if (selectedUniversityId == -1) {
+				facesContext.addMessage(null, new FacesMessage(
+						FacesMessage.SEVERITY_WARN,
+						"Bir Üniversite Seçmelisiniz !",
+						"Bir Üniversite Seçmelisiniz !"));
+			}
 			facesContext.addMessage(null, new FacesMessage(
 					FacesMessage.SEVERITY_ERROR, "Bölüm kaydedilemedi!",
 					"Bölüm kaydedilemedi!"));
 		}
-
+			return "AcademicLogin.xhtml?faces-redirect=true";
+		
+		
+		
 	}
 
 	@PostConstruct
 	public void initAcademic() {
 		academic = new Academic();
 	}
-
-	
-	
-	
 
 }

@@ -19,7 +19,7 @@ import com.kaykisiz.ceviri.model.University;
 //Üniversitelerin Listesini getirir.
 
 @RequestScoped
-public class UniverstiyListProducer {
+public class UniversityListProducer {
 
 	@Inject
 	private EntityManager entityManager;

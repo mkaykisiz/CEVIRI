@@ -34,7 +34,7 @@ public class Academic implements Serializable {
 	private String surname;
 
 	@Column(length = 16)
-	@Size(max = 16)
+	@Size(min=6, max = 16,message="Şifre En az 6 En fazla 16 karakter olmalıdır.")
 	private String parola;
 
 	@Column(length = 50, nullable = false)

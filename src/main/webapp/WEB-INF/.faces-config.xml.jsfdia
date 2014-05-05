@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PROCESS model-entity="JSFProcess"/>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#AcademicLogin.xhtml"
+  PATH="/AcademicLogin.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#AcademicLogin.xhtml:0" NAME="item"
+   PATH="/AcademicLogin.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="register::AcademicLogin.xhtml" NAME="output"
+    PATH="AcademicLogin.xhtml" TARGET="rules:AcademicLogin.xhtml"
+    TITLE="register" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:AcademicLogin.xhtml"
+  PATH="AcademicLogin.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>
