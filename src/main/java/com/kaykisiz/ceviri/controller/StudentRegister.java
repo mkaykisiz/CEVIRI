@@ -11,13 +11,12 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 
-import com.kaykisiz.ceviri.data.TitleListProducer;
 import com.kaykisiz.ceviri.data.UniversityListProducer;
-import com.kaykisiz.ceviri.model.Academic;
+import com.kaykisiz.ceviri.model.Student;
 
 @Stateful
 @Model
-public class AcademicRegister {
+public class StudentRegister {
 
 	@Inject
 	private EntityManager entityManager;
@@ -26,50 +25,20 @@ public class AcademicRegister {
 	private FacesContext facesContext;
 
 	@Inject
-	private Event<Academic> academicEvent;
+	private Event<Student> academicEvent;
 
-	private Academic academic;
+	private Student student;
 
 	private int selectedUniversityId;
-	
-	private int selectedTitleId;
 
 	@Inject
 	private UniversityListProducer universtiyListProducer;
-	
-	@Inject
-	private TitleListProducer titleListProducer;
 
 	@Named
 	@Produces
-	public Academic getAcademic() {
-		return academic;
+	public Student getStudent() {
+		return student;
 	}
-
-		
-	public int getSelectedTitleId() {
-		return selectedTitleId;
-	}
-
-
-
-	public void setSelectedTitleId(int selectedTitleId) {
-		this.selectedTitleId = selectedTitleId;
-	}
-
-
-
-	public TitleListProducer getTitleListProducer() {
-		return titleListProducer;
-	}
-
-
-
-	public void setTitleListProducer(TitleListProducer titleListProducer) {
-		this.titleListProducer = titleListProducer;
-	}
-
-
 
 	public int getSelectedUniversityId() {
 		return selectedUniversityId;
@@ -77,7 +46,7 @@ public class AcademicRegister {
 
 	public void setSelectedUniversityId(int selectedUniversityId) {
 		this.selectedUniversityId = selectedUniversityId;
-	}	
+	}
 
 	public UniversityListProducer getUniverstiyListProducer() {
 		return universtiyListProducer;
@@ -88,31 +57,27 @@ public class AcademicRegister {
 		this.universtiyListProducer = universtiyListProducer;
 	}
 
-	public String registerAcademic() {
+	public String registerStudent() {
 		for (int i = 0; i < universtiyListProducer.getUniversities().size(); i++) {
-			if (selectedUniversityId==universtiyListProducer.getUniversities().get(i).getUniversityId()) {
-				academic.setUniversity(universtiyListProducer.getUniversities().get(i));
+			if (selectedUniversityId == universtiyListProducer
+					.getUniversities().get(i).getUniversityId()) {
+				student.setUniversity(universtiyListProducer.getUniversities()
+						.get(i));
 				break;
 			}
 		}
-		for (int i = 0; i < titleListProducer.getTitles().size(); i++) {
-			if (selectedTitleId==titleListProducer.getTitles().get(i).getTitleId()) {
-				academic.setTitle(titleListProducer.getTitles().get(i));
-				break;
-			}
-		}
-		
+	
+
 		try {
-			entityManager.persist(academic);
-			academicEvent.fire(academic);
+			entityManager.persist(student);
+			academicEvent.fire(student);
 			facesContext.addMessage(null, new FacesMessage(
 					FacesMessage.SEVERITY_INFO,
-					"Bölüm kaydı başarıyla yapıldı.", academic.getName()
-							+ " "+ academic.getSurname()
-							+ "Aramıza Hoş Gelidin"));
-			
-			initAcademic();
-			
+					"Bölüm kaydı başarıyla yapıldı.", student.getName() + " "
+							+ student.getSurname() + "Aramıza Hoş Gelidin"));
+
+			initStudent();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (selectedUniversityId == -1) {
@@ -122,18 +87,16 @@ public class AcademicRegister {
 						"Bir Üniversite Seçmelisiniz !"));
 			}
 			facesContext.addMessage(null, new FacesMessage(
-					FacesMessage.SEVERITY_ERROR, "Kayıt Başarısız !",
-					"Kayıt Başarısız !"));
+					FacesMessage.SEVERITY_ERROR, "Bölüm kaydedilemedi!",
+					"Bölüm kaydedilemedi!"));
 		}
-			return "Academic/AcademicLoginRegister/index.xhtml?faces-redirect=true";
-		
-		
-		
+		return "StudentLoginRegister/index.xhtml?faces-redirect=true";
+
 	}
 
 	@PostConstruct
-	public void initAcademic() {
-		academic = new Academic();
+	public void initStudent() {
+		student = new Student();
 	}
 
 }

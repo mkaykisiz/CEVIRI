@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="../../css/profile.css" />
+</h:head>
+<h:body>
+	<p:layout fullPage="true">
+		<p:layoutUnit id="menu" position="north" size="100" resizable="false"
+			closable="false">
+			<p:tabMenu activeIndex="0">
+				<p:menuitem value="Anasayfa" url="../Profile/"
+					icon="ui-icon-star" />
+				<p:menuitem value="Firma Ara" url="../CompanySearch/"
+					icon="ui-icon-search" />
+				<p:menuitem value="Öğrenci Ara" url="../StudentSearch/"
+					icon="ui-icon-search" />
+				<p:menuitem value="Dosyalar" url="../FileList/"
+					icon="ui-icon-document" />
+				<p:menuitem value="Mesajlar" url="../Messages/"
+					icon="ui-icon-person" />
+			</p:tabMenu>
+		</p:layoutUnit>
+
+		<p:layoutUnit id="profile" position="east" size="300"
+			resizable="false" closable="false">
+			<div id="profile">
+				<center>
+					<h2>...:::Profile:::...</h2>
+					<div id="profileframe">
+						<div id="profileimage">
+							<h:graphicImage id="image" value="#{AcademicSession.academic.image}" />
+						</div>
+						<div id="information">
+							<h2>#{AcademicSession.academic.name}
+								#{AcademicSession.academic.surname}</h2>
+						</div>
+						<div id="settings">
+							<p:commandButton id="closesessionbutton" value="Oturumu Kapat" />
+							<br />
+							<p:commandButton id="Settingsbutton" value="Ayarlari Duzenle" />
+						</div>
+					</div>
+				</center>
+			</div>
+		</p:layoutUnit>
+	</p:layout>
+	<p:layoutUnit id="center" position="center" size="400"
+		resizable="false" closable="false" >
+		<h:graphicImage id="coverimage" value="#{AcademicSession.academic.coverImage}" />
+		<br/>
+		
+	
+		</p:layoutUnit>
+
+</h:body>
+</html>

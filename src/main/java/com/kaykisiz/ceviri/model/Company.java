@@ -26,23 +26,29 @@ public class Company implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int CompanyId;
 
-	@Column(length = 16)
-	@Size(max = 16)
-	private String parola;
+
 
 	@Column(length = 60)
 	private String name;
-
-	@Column(length = 250)
-	private String address;
 
 	@Column(length = 50, nullable = false)
 	@NotEmpty(message = "e-mail adresi boş olamaz!")
 	@Email(message = "Lütfen geçerli bir e-mail adresi girin.")
 	private String mail;
+	
+	@Column(length = 16)
+	@Size(min=6, max = 16,message="Şifre En az 6 En fazla 16 karakter olmalıdır.")
+	private String parola;
+	
+	@Column(length = 10)
+	private String telNumber;
+	
+	@Column(length=250)
+	@Size(min=6, max = 16,message="Şifre En az 20 En fazla 250 karakter olmalıdır.")
+	private String adress;
 
-	@Size(min = 1, max = 10)
-	private byte companyPoint;
+	@Column(length=2)
+	private String companyPoint;
 
 	@ManyToOne
 	@JoinColumn(name = "image_id")
@@ -68,19 +74,11 @@ public class Company implements Serializable {
 		this.name = name;
 	}
 
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public byte getCompanyPoint() {
+	public String getCompanyPoint() {
 		return companyPoint;
 	}
 
-	public void setCompanyPoint(byte companyPoint) {
+	public void setCompanyPoint(String companyPoint) {
 		this.companyPoint = companyPoint;
 	}
 
@@ -106,6 +104,30 @@ public class Company implements Serializable {
 
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+
+	public String getParola() {
+		return parola;
+	}
+
+	public void setParola(String parola) {
+		this.parola = parola;
+	}
+
+	public String getTelNumber() {
+		return telNumber;
+	}
+
+	public void setTelNumber(String telNumber) {
+		this.telNumber = telNumber;
+	}
+
+	public String getAdress() {
+		return adress;
+	}
+
+	public void setAdress(String adress) {
+		this.adress = adress;
 	}
 
 }

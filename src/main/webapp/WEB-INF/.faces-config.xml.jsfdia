@@ -1,14 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PROCESS model-entity="JSFProcess">
- <PROCESS-ITEM NAME="rules:#AcademicLogin.xhtml"
-  PATH="/AcademicLogin.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#AcademicLogin.xhtml:0" NAME="item"
-   PATH="/AcademicLogin.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="register::AcademicLogin.xhtml" NAME="output"
-    PATH="AcademicLogin.xhtml" TARGET="rules:AcademicLogin.xhtml"
-    TITLE="register" model-entity="JSFProcessItemOutput"/>
+ <PROCESS-ITEM
+  NAME="rules:Academic#AcademicLoginRegister#index.xhtml#toregister"
+  PATH="Academic/AcademicLoginRegister/index.xhtml#toregister"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:Academic#AcademicLoginRegister#index.xhtml#toregister:0"
+   NAME="item"
+   PATH="Academic/AcademicLoginRegister/index.xhtml#toregister" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="register:#{academicRegister.registerAcademic()}:Academic#AcademicLoginRegister#index.xhtml#tologin"
+    NAME="output"
+    PATH="Academic/AcademicLoginRegister/index.xhtml#tologin"
+    TARGET="rules:Academic#AcademicLoginRegister#index.xhtml#tologin"
+    TITLE="#{academicRegister.registerAcademic()}:register" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:AcademicLogin.xhtml"
-  PATH="AcademicLogin.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:Academic#AcademicLoginRegister#index.xhtml#tologin"
+  PATH="Academic/AcademicLoginRegister/index.xhtml/tologin"
+  SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:Academic#AcademicLoginRegister#index.xhtml"
+  PATH="Academic/AcademicLoginRegister/index.xhtml" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:Academic#AcademicLoginRegister#index.xhtml:0"
+   NAME="item" PATH="Academic/AcademicLoginRegister/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="login:#{AcademicSession.login()}:Academic#Profile#index.xhtml"
+    NAME="output" PATH="Academic/Profile/index.xhtml"
+    TARGET="rules:Academic#Profile#index.xhtml"
+    TITLE="#{AcademicSession.login()}:login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:Academic#Profile#index.xhtml"
+  PATH="Academic/Profile/index.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:Student#StudentLoginRegister#index.xhtml#toregister"
+  PATH="Student/StudentLoginRegister/index.xhtml#toregister"
+  SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:Student#StudentLoginRegister#index.xhtml#toregister:0"
+   NAME="item"
+   PATH="Student/StudentLoginRegister/index.xhtml#toregister" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="register:#{studentRegister.registerStudent()}:Student#StudentLoginRegister#index.xhtml#tologin"
+    NAME="output"
+    PATH="Student/StudentLoginRegister/index.xhtml#tologin"
+    TARGET="rules:Student#StudentLoginRegister#index.xhtml#tologin"
+    TITLE="#{studentRegister.registerStudent()}:register" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:Student#StudentLoginRegister#index.xhtml"
+  PATH="Student/StudentLoginRegister/index.xhtml" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:Student#StudentLoginRegister#index.xhtml:0"
+   NAME="item" PATH="Student/StudentLoginRegister/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="login:#{StudentSession.login()}:Student#Profile#index.xhtml"
+    NAME="output" PATH="Student/Profile/index.xhtml"
+    TARGET="rules:Student#Profile#index.xhtml"
+    TITLE="#{StudentSession.login()}:login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:Company#CompanyLoginRegister#index.xhtml#toregister"
+  PATH="Company/CompanyLoginRegister/index.xhtml#toregister"
+  SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:Company#CompanyLoginRegister#index.xhtml#toregister:0"
+   NAME="item"
+   PATH="Company/CompanyLoginRegister/index.xhtml#toregister" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="register:#{companyRegister.registerCompany()}:Academic#AcademicLoginRegister#index.xhtml#tologin"
+    NAME="output"
+    PATH="Academic/AcademicLoginRegister/index.xhtml#tologin"
+    TARGET="rules:Academic#AcademicLoginRegister#index.xhtml#tologin"
+    TITLE="#{companyRegister.registerCompany()}:register" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:Company#CompanyLoginRegister#index.xhtml"
+  PATH="Company/CompanyLoginRegister/index.xhtml" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:Company#CompanyLoginRegister#index.xhtml:0"
+   NAME="item" PATH="Company/CompanyLoginRegister/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="login:#{CompanySession.login()}:Company#Profile#index.xhtml"
+    NAME="output" PATH="Company/Profile/index.xhtml"
+    TARGET="rules:Company#Profile#index.xhtml"
+    TITLE="#{CompanySession.login()}:login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:Company#Profile#index.xhtml"
+  PATH="Company/Profile/index.xhtml" SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:Student#Profile#index.xhtml"
+  PATH="Student/Profile/index.xhtml" SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:Student#StudentLoginRegister#index.xhtml#tologin"
+  PATH="Student/StudentLoginRegister/index.xhtml/tologin"
+  SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

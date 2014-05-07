@@ -30,8 +30,8 @@ public class Student implements Serializable {
 	@Column(length = 25)
 	private String surname;
 	
-	@Column(length=16)
-	@Size(max=16)
+	@Column(length = 16)
+	@Size(min=6, max = 16,message="Şifre En az 6 En fazla 16 karakter olmalıdır.")
 	private String parola;
 
 	@Column(length = 50, nullable = false)
@@ -42,9 +42,8 @@ public class Student implements Serializable {
 	@Column(length = 10)
 	private String telNumber;
 
-	@Size(min = 1, max = 10)
-	private byte studentPoint;
-
+	@Column(length=2)
+	private String studentPoint;
 	@ManyToOne
 	@JoinColumn(name = "university_id")
 	private University university;
@@ -103,11 +102,11 @@ public class Student implements Serializable {
 		this.telNumber = telNumber;
 	}
 
-	public byte getStudentPoint() {
+	public String getStudentPoint() {
 		return studentPoint;
 	}
 
-	public void setStudentPoint(byte studentPoint) {
+	public void setStudentPoint(String studentPoint) {
 		this.studentPoint = studentPoint;
 	}
 

@@ -14,9 +14,9 @@
 	<meta name="keywords"
 		content="html5, css3, form, switch, animation, :target, pseudo-class" />
 	<meta name="author" content="Codrops" />
-	<link rel="stylesheet" type="text/css" href="../css/demo.css" />
-	<link rel="stylesheet" type="text/css" href="../css/style2.css" />
-	<link rel="stylesheet" type="text/css" href="../css/animate-custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style2.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/animate-custom.css" />
 </h:head>
 <h:body>
 	<div class="container">
@@ -42,75 +42,69 @@
 				id="tologin"></a>
 			<div id="wrapper">
 				<div id="login" class="animate form">
-					<form action="mysuperscript.php" autocomplete="on">
+					<h:form>
 						<h1>GIRIS YAP</h1>
 						<p>
-							<label for="username" class="uname" data-icon="u"> Mail
-								Adresin </label> <input id="username" name="username"
-								required="required" type="text" placeholder="mymail@mail.com" />
+							<h:outputLabel value="Mail" />
+							<h:inputText value="#{AcademicSession.mail}" />
 						</p>
 						<p>
-							<label for="password" class="youpasswd" data-icon="p">
-								Parolan </label> <input id="password" name="password"
-								required="required" type="password" placeholder="eg. X8df!90EO" />
+							<h:outputLabel value="Parola" />
+							<h:inputText value="#{AcademicSession.pass}" />
 						</p>
 						<p class="login button">
-							<input type="submit" value="Login" />
+							<h:commandButton action="#{AcademicSession.login()}" value="GIRIS" />
 						</p>
 						<p class="change_link">
 							<a href="#toregister" class="to_register">KAYIT OL</a>
 						</p>
-					</form>
+					</h:form>
 				</div>
 
 				<div id="register" class="animate form">
 					<h:form>
 						<h1>KAYIT OL</h1>
-						<p:messages id="registerAcademicMessages" showDetail="false"
+						<p:messages id="registeracademicMessages" showDetail="false"
 							autoUpdate="true" closable="true" />
 						<p>
 							<h:outputLabel value="Ad" />
 							<p:inputText value="#{academic.name}" />
 						</p>
 						<p>
-							<h:outputLabel value="Soyad"/>
-							<p:inputText value="#{academic.surname}"/>
+							<h:outputLabel value="Soyad" />
+							<p:inputText value="#{academic.surname}" />
 						</p>
 						<p>
-							<h:outputLabel value="Parola"/>
-							<p:password value="#{academic.parola}" feedback="true" inline="true" />
+							<h:outputLabel value="Parola" />
+							<p:password value="#{academic.parola}" feedback="true"
+								inline="true" />
 						</p>
 						<p>
-							<h:outputLabel value="Telefon Numarası (5xx xxx xx xx)"/>
+							<h:outputLabel value="Telefon Numarası (5xx xxx xx xx)" />
 							<p:inputText value="#{academic.telNumber}" />
 						</p>
 						<p>
-							<h:outputLabel value="Mail"/>
-							<p:inputText value="#{academic.mail}"/>
+							<h:outputLabel value="Mail" />
+							<p:inputText value="#{academic.mail}" />
 						</p>
 						<p>
 							<h:outputLabel value="Üniversite" />
-							<p:selectOneMenu id="UniversitySelect" value="#{academicRegister.selectedUniversityId}">
+							<p:selectOneMenu id="UniversitySelect"
+								value="#{academicRegister.selectedUniversityId}">
 								<f:selectItems value="#{universities}" var="_univ"
-									itemLabel="#{_univ.universityName}" itemValue="#{_univ.universityId}"/>
-							</p:selectOneMenu>
-						</p>
-						<p>
-							<h:outputLabel value="Ünvan" />
-							<p:selectOneMenu id="TitleSelect" value="#{academicRegister.selectedTitleId}">
-								<f:selectItems value="#{titles}" var="_title"
-									itemLabel="#{_title.title}" itemValue="#{_title.titleId}"/>
+									itemLabel="#{_univ.universityName}"
+									itemValue="#{_univ.universityId}" />
 							</p:selectOneMenu>
 						</p>
 						
 						<p class="signin button">
-							<p:commandButton value="KAYIT OL"
+							<h:commandButton value="KAYIT OL"
 								action="#{academicRegister.registerAcademic()}" />
 						</p>
 						<p class="change_link">
 							<a href="#tologin" class="to_register">Giriş Yap</a>
 						</p>
-						
+
 					</h:form>
 				</div>
 

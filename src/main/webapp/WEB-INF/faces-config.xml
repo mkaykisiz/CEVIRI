@@ -1,18 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This file is not required if you don't need any extra configuration. -->
 <faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
         http://java.sun.com/xml/ns/javaee
         http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
-        
-        
-        <navigation-rule>
-    <from-view-id>/AcademicLogin.xhtml</from-view-id>
-    <navigation-case>
-        <from-outcome>register</from-outcome>
-        <to-view-id>AcademicLogin.xhtml</to-view-id>
-        <redirect />
-    </navigation-case>
-</navigation-rule>
+
+
+	<navigation-rule>
+		<from-view-id>Academic/AcademicLoginRegister/index.xhtml#toregister</from-view-id>
+		<navigation-case>
+		 <from-action>#{academicRegister.registerAcademic()}</from-action>
+			<from-outcome>register</from-outcome>
+			<to-view-id>Academic/AcademicLoginRegister/index.xhtml#tologin</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>Academic/AcademicLoginRegister/index.xhtml</from-view-id>
+		<navigation-case>
+		 <from-action>#{AcademicSession.login()}</from-action>
+			<from-outcome>login</from-outcome>
+			<to-view-id>Academic/Profile/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<from-view-id>Student/StudentLoginRegister/index.xhtml#toregister</from-view-id>
+		<navigation-case>
+		 <from-action>#{studentRegister.registerStudent()}</from-action>
+			<from-outcome>register</from-outcome>
+			<to-view-id>Student/StudentLoginRegister/index.xhtml#tologin</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>Student/StudentLoginRegister/index.xhtml</from-view-id>
+		<navigation-case>
+		 <from-action>#{StudentSession.login()}</from-action>
+			<from-outcome>login</from-outcome>
+			<to-view-id>Student/Profile/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<from-view-id>Company/CompanyLoginRegister/index.xhtml#toregister</from-view-id>
+		<navigation-case>
+		 <from-action>#{companyRegister.registerCompany()}</from-action>
+			<from-outcome>register</from-outcome>
+			<to-view-id>Academic/AcademicLoginRegister/index.xhtml#tologin</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>Company/CompanyLoginRegister/index.xhtml</from-view-id>
+		<navigation-case>
+		 <from-action>#{CompanySession.login()}</from-action>
+			<from-outcome>login</from-outcome>
+			<to-view-id>Company/Profile/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
 </faces-config>
+

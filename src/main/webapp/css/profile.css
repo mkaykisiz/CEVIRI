@@ -1,0 +1,48 @@
+div{
+moz-border-radius: 15px; 
+webkit-border-radius: 15px;
+border-radius: 15px;
+}
+#profile{
+background-color:white; 
+width:%20; 
+height:600px; 
+}
+
+#profileframe{
+background-color:#D6D6ED;
+width:300px; 
+height:550px;  
+moz-border-radius: 500px; 
+webkit-border-radius: 500px;
+border-radius: 500px
+}
+#coverimage{
+text-align: center ;
+width:851px; 
+height:315px; 
+	
+}
+#profileimage{
+width:300px; 
+height:300px; 
+padding-bottom:15px;
+}
+
+#image{ 
+margin-top:15px;
+width:200px; 
+height:300px; 
+padding:1px;
+border:1px solid #021a40;
+max-width: 100%;
+moz-border-radius: 500px; 
+webkit-border-radius: 500px;
+border-radius: 500px
+}
+#information{
+background-color:#080960;
+width:350;
+color:white;
+
+}
