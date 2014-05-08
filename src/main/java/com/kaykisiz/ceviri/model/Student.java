@@ -44,6 +44,11 @@ public class Student implements Serializable {
 
 	@Column(length=2)
 	private String studentPoint;
+	
+	@Column(length=600)
+	@Size(min=100, max=600, message="En az 100, en fazla 600 karakter !")
+	private String about;
+	
 	@ManyToOne
 	@JoinColumn(name = "university_id")
 	private University university;
@@ -156,6 +161,14 @@ public class Student implements Serializable {
 
 	public void setStudentLanguages(List<StudentLanguage> studentLanguages) {
 		this.studentLanguages = studentLanguages;
+	}
+
+	public String getAbout() {
+		return about;
+	}
+
+	public void setAbout(String about) {
+		this.about = about;
 	}
 	
 	

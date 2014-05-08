@@ -27,6 +27,17 @@
 		</navigation-case>
 	</navigation-rule>
 	
+	<navigation-rule>
+		<from-view-id>Academic/StudentSearch/index.xhtml</from-view-id>
+		<navigation-case>
+		 <from-action>#{studentAddedbyAcademic.studentAddedbyAcademic()}</from-action>
+			<from-outcome>login</from-outcome>
+			<to-view-id>Academic/Profile/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	
 	
 	<navigation-rule>
 		<from-view-id>Student/StudentLoginRegister/index.xhtml#toregister</from-view-id>

@@ -69,6 +69,10 @@ public class Academic implements Serializable {
 	
 	@OneToMany(mappedBy = "academicLanguage")
 	private List<AcademicLanguage> academicLanguages;
+	
+	@Column(length=600)
+	@Size(min=100, max=600, message="En az 100, en fazla 600 karakter !")
+	private String about;
 
 	public int getAcademicId() {
 		return academicId;
@@ -172,6 +176,14 @@ public class Academic implements Serializable {
 
 	public void setAcademicLanguages(List<AcademicLanguage> academicLanguages) {
 		this.academicLanguages = academicLanguages;
+	}
+
+	public String getAbout() {
+		return about;
+	}
+
+	public void setAbout(String about) {
+		this.about = about;
 	}
 
 	

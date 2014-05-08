@@ -95,4 +95,15 @@
   NAME="rules:Student#StudentLoginRegister#index.xhtml#tologin"
   PATH="Student/StudentLoginRegister/index.xhtml/tologin"
   SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:Academic#StudentSearch#index.xhtml"
+  PATH="Academic/StudentSearch/index.xhtml" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:Academic#StudentSearch#index.xhtml:0"
+   NAME="item" PATH="Academic/StudentSearch/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="login:#{studentAddedbyAcademic.studentAddedbyAcademic()}:Academic#Profile#index.xhtml"
+    NAME="output" PATH="Academic/Profile/index.xhtml"
+    TARGET="rules:Academic#Profile#index.xhtml"
+    TITLE="#{studentAddedbyAcademic.studentAddedbyAcademic()}:login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

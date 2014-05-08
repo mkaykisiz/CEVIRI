@@ -1,9 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+
+		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+		<html xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:h="http://java.sun.com/jsf/html"
+			xmlns:f="http://java.sun.com/jsf/core"
+			xmlns:ui="http://java.sun.com/jsf/facelets"
+			xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<link rel="stylesheet" type="text/css" href="../../css/profile.css" />
@@ -13,11 +14,10 @@
 		<p:layoutUnit id="menu" position="north" size="100" resizable="false"
 			closable="false">
 			<p:tabMenu activeIndex="0">
-				<p:menuitem value="Anasayfa" url="../Profile/"
-					icon="ui-icon-star" />
+				<p:menuitem value="Anasayfa" url="../Profile/" icon="ui-icon-star" />
 				<p:menuitem value="Firma Ara" url="../CompanySearch/"
 					icon="ui-icon-search" />
-				<p:menuitem value="Öğrenci Ara" url="../StudentSearch/"
+				<p:menuitem value="Öğrenci Ara" url="../compentSearch/"
 					icon="ui-icon-search" />
 				<p:menuitem value="Dosyalar" url="../FileList/"
 					icon="ui-icon-document" />
@@ -33,7 +33,8 @@
 					<h2>...:::Profile:::...</h2>
 					<div id="profileframe">
 						<div id="profileimage">
-							<h:graphicImage id="image" value="#{AcademicSession.academic.image}" />
+							<h:graphicImage id="image"
+								value="#{AcademicSession.academic.image}" />
 						</div>
 						<div id="information">
 							<h2>#{AcademicSession.academic.name}
@@ -48,12 +49,51 @@
 				</center>
 			</div>
 		</p:layoutUnit>
-	</p:layout>
-	<p:layoutUnit id="center" position="center" size="400"
-		resizable="false" closable="false" >
-		<h:graphicImage id="coverimage" value="#{AcademicSession.academic.coverImage}" />
-		<br/>
+
+		<p:layoutUnit id="center" position="center" size="400"
+			resizable="false" closable="false">
+
+
+			<h:form id="form">
+
+
+				<p:dataTable id="company" var="comp" value="#{companies}"
+					sortMode="multiple" rows="25" paginator="true"
+					emptyMessage="Kayıt bulunamadı !" rowKey="#{comp.mail}"
+					selection="#{AcademicSession.selectedCompany}"
+					selectionMode="single">
+					<f:facet name="header">
+           Öğrenciler
+        </f:facet>
+					<p:column sortBy="image" headerText="Resim" style="width:24%">
+						<h:graphicImage value="#{comp.image.url}" />
+					</p:column>
+
+					<p:column sortBy="name" headerText="Ad" style="width:24%">
+						<h:outputText value="#{comp.name}" />
+					</p:column>
+
+					<p:column sortBy="mail" headerText="Mail" style="width:24%">
+						<h:outputText value="#{comp.mail}" />
+					</p:column>
+					<p:column sortBy="telnum" headerText="Telefon" style="width:24%">
+						<h:outputText value="#{comp.telNumber}" />
+					</p:column>
+					<p:column sortBy="Adress" headerText="Adres" style="width:24%">
+						<h:outputText value="#{comp.adress}" />
+					</p:column>
+					<f:facet name="footer">
+						<p:commandButton id="oku" value="Profile Bak"
+							icon="ui-icon-circle-plus" action="#{AcademicSession.companyProfile()}">
+						</p:commandButton>
+					</f:facet>
+				</p:dataTable>
+			</h:form>
+			
 		</p:layoutUnit>
+
+	</p:layout>
+
 
 </h:body>
 </html>

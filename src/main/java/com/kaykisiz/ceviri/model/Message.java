@@ -70,9 +70,10 @@ public class Message implements Serializable {
 		return company;
 	}
 
-	public void setCompanyOfficial(Company company) {
+	public void setCompany(Company company) {
 		this.company = company;
 	}
+
 	
 	
 }

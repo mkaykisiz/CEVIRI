@@ -13,8 +13,7 @@
 		<p:layoutUnit id="menu" position="north" size="100" resizable="false"
 			closable="false">
 			<p:tabMenu activeIndex="0">
-				<p:menuitem value="Anasayfa" url="../Profile/"
-					icon="ui-icon-star" />
+				<p:menuitem value="Anasayfa" url="../Profile/" icon="ui-icon-star" />
 				<p:menuitem value="Firma Ara" url="../CompanySearch/"
 					icon="ui-icon-search" />
 				<p:menuitem value="Öğrenci Ara" url="../StudentSearch/"
@@ -33,7 +32,8 @@
 					<h2>...:::Profile:::...</h2>
 					<div id="profileframe">
 						<div id="profileimage">
-							<h:graphicImage id="image" value="#{AcademicSession.academic.image}" />
+							<h:graphicImage id="image"
+								value="#{AcademicSession.academic.image}" />
 						</div>
 						<div id="information">
 							<h2>#{AcademicSession.academic.name}
@@ -48,14 +48,47 @@
 				</center>
 			</div>
 		</p:layoutUnit>
-	</p:layout>
-	<p:layoutUnit id="center" position="center" size="400"
-		resizable="false" closable="false" >
-		<h:graphicImage id="coverimage" value="#{AcademicSession.academic.coverImage}" />
-		<br/>
-		
-	
+
+		<p:layoutUnit id="center" position="center" size="400"
+			resizable="false" closable="false">
+			
+
+			<h:form id="form">
+
+
+				<p:dataTable id="students" var="stud" value="#{students}"
+					sortMode="multiple" rows="25" paginator="true"
+					emptyMessage="Kayıt bulunamadı !" rowKey="#{stud.mail}" selection="#{AcademicSession.selectedStudent}" selectionMode="single">
+					<f:facet name="header">
+           Öğrenciler
+        </f:facet>
+					<p:column sortBy="image" headerText="Resim" style="width:24%">
+						<h:graphicImage value="#{stud.image.url}" />
+					</p:column>
+
+					<p:column sortBy="name" headerText="Ad" style="width:24%">
+						<h:outputText value="#{stud.name}" />
+					</p:column>
+
+					<p:column sortBy="surname" headerText="Soyad" style="width:24%">
+						<h:outputText value="#{stud.surname}" />
+					</p:column>
+					<p:column sortBy="mail" headerText="Mail" style="width:24%">
+						<h:outputText value="#{stud.mail}" />
+					</p:column>
+					<p:column sortBy="telnum" headerText="Telefon" style="width:24%">
+						<h:outputText value="#{stud.telNumber}" />
+					</p:column>
+					 <f:facet name="footer">
+						<p:commandButton id="selectButton" value="Ekle" icon="ui-icon-circle-plus"
+							 action="#{studentAddedbyAcademic.studentAddedbyAcademic()}">							
+						</p:commandButton>
+					</f:facet>
+
+				</p:dataTable>
+			</h:form>
 		</p:layoutUnit>
 
+	</p:layout>
 </h:body>
 </html>

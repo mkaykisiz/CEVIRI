@@ -96,6 +96,15 @@
 									itemValue="#{_univ.universityId}" />
 							</p:selectOneMenu>
 						</p>
+							<p>
+							<h:outputLabel value="Ünvan" />
+							<p:selectOneMenu id="TitleSelect"
+								value="#{academicRegister.selectedTitleId}">
+								<f:selectItems value="#{titles}" var="_tit"
+									itemLabel="#{_tit.title}"
+									itemValue="#{_tit.titleId}" />
+							</p:selectOneMenu>
+						</p>
 						
 						<p class="signin button">
 							<h:commandButton value="KAYIT OL"
