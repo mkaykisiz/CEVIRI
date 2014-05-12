@@ -48,7 +48,7 @@
 				</center>
 			</div>
 		</p:layoutUnit>
-	
+
 
 
 		<p:layoutUnit id="center" position="center" size="400"
@@ -58,32 +58,31 @@
 			<h:form id="form">
 
 
-				<p:dataTable id="messagecontent" var="cont" value="#{messageContents}"
+				<p:dataTable id="message" var="msg" value="#{acedemicMessages}"
 					sortMode="multiple" rows="25" paginator="true"
-					emptyMessage="Kayıt bulunamadı !" rowKey="#{cont.id}"
-					selection="#{AcademicSession.selectedMessageContent}"
+					emptyMessage="Kayıt bulunamadı !" rowKey="#{msg.id}"
+					selection="#{AcademicSession.selectedMessage}"
 					selectionMode="single">
 					<f:facet name="header">
            Mesajlar
         </f:facet>
-					
-					<p:column sortBy="Konu" headerText="Ad" style="width:24%">
-						<h:outputText value="#{cont.message.title}" />
+
+					<p:column sortBy="Konu" headerText="Konu" style="width:24%">
+						<h:outputText value="#{msg.title}" />
 					</p:column>
 
-					<p:column sortBy="Şirket" headerText="Mail" style="width:24%">
-						<h:outputText value="#{cont.message.company.name}" />
+					<p:column sortBy="Şirket" headerText="Şirket" style="width:24%">
+						<h:outputText value="#{msg.company.name}" />
 					</p:column>
-					
+
 					<f:facet name="footer">
-						<p:commandButton id="selectButton" value="Ekle"
-							icon="ui-icon-circle-plus" action="#{go}">
-							<p:commandButton id="oku" action="#{AcademicSession.MessageContents()}" value="Mesaj Oku" />
-						</p:commandButton>
+						<p:commandButton id="oku"
+							action="#{AcademicSession.MessageContents()}" value="Mesaj Oku" />
+
 					</f:facet>
 				</p:dataTable>
 			</h:form>
-		
+
 		</p:layoutUnit>
 
 	</p:layout>

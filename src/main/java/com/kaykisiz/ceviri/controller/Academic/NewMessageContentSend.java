@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.controller;
+package com.kaykisiz.ceviri.controller.Academic;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
@@ -15,7 +15,8 @@ import com.kaykisiz.ceviri.model.MessageContent;
 
 @Stateful
 @Model
-public class NewMessageSend {
+public class NewMessageContentSend {
+
 	@Inject
 	private EntityManager entityManager;
 
@@ -23,13 +24,12 @@ public class NewMessageSend {
 	private FacesContext facesContext;
 
 	@Inject
-	private Event<MessageContent> messageEvent;
-	
-	private MessageContent messageContent;
+	private Event<MessageContent> messageContentEvent;
 	
 	@Inject
 	private AcademicSession academicSession;
 
+	private MessageContent messageContent;
 
 	@Named
 	@Produces
@@ -38,37 +38,33 @@ public class NewMessageSend {
 	}
 
 
-	public void setMessageContent(MessageContent messageContent) {
-		this.messageContent = messageContent;
-	}
-
-
-	public String newMessage() {
-	
-		messageContent.setMessage(academicSession.getSelectedMessage());
-		
+	public String newMessageContent() {
+	messageContent.setMessage(academicSession.getSelectedMessage());
+	messageContent.setRead(true);
 		try {
-			
 			entityManager.persist(messageContent);
-			messageEvent.fire(messageContent);
-					
-			initMessageContent();
+			messageContentEvent.fire(messageContent);
 			
+			facesContext.addMessage(null, new FacesMessage(
+					FacesMessage.SEVERITY_INFO,
+					"Firma kaydı başarıyla yapıldı.","Firma kaydı başarıyla yapıldı."));
+
+			initnewmessage();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			
 			facesContext.addMessage(null, new FacesMessage(
-					FacesMessage.SEVERITY_ERROR, "Kayıt Başarısız !",
-					"Kayıt Başarısız !"));
+					FacesMessage.SEVERITY_ERROR, "Firma kaydedilemedi!",
+					"Firma kaydedilemedi!"));
 		}
-			return "Academic/Messages/index.xhtml?faces-redirect=true";
-		
-		
-
+return"MessageContent";
 	}
 
+	
+
 	@PostConstruct
-	public void initMessageContent() {
+	public void initnewmessage() {
 		messageContent = new MessageContent();
 	}
 

@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.controller;
+package com.kaykisiz.ceviri.controller.Student;
 
 	import java.io.Serializable;
 import java.util.List;
@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import com.kaykisiz.ceviri.model.Student;
+import com.kaykisiz.ceviri.model.Translation;
 
 	@ManagedBean(name="StudentSession")
 	@SessionScoped
@@ -25,6 +26,8 @@ import com.kaykisiz.ceviri.model.Student;
 		private Student student;
 		
 		private List<Student> students;
+		
+		private Translation selectedTranslation;
 
 		private String pass;
 		
@@ -67,6 +70,14 @@ import com.kaykisiz.ceviri.model.Student;
 
 		public void setStudent(Student student) {
 			this.student = student;
+		}
+
+		public Translation getSelectedTranslation() {
+			return selectedTranslation;
+		}
+
+		public void setSelectedTranslation(Translation selectedTranslation) {
+			this.selectedTranslation = selectedTranslation;
 		}
 		
 		

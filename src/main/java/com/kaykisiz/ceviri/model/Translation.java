@@ -29,11 +29,13 @@ public class Translation implements Serializable {
 	@Size(max=180, message="Max. 180 karakter !")
 	private String title;	
 
-	@Size(min = 1, max = 10)
-	private byte studentPoint;
+
 	
 	@Temporal(TemporalType.DATE)
 	private Date date;
+	
+	@Column(length=180)
+	private String url;
 	
 	private boolean Translated;
 	
@@ -45,6 +47,8 @@ public class Translation implements Serializable {
 	
 	@ManyToOne
 	private Company company;
+	
+	
 
 	public Long getId() {
 		return id;
@@ -62,13 +66,7 @@ public class Translation implements Serializable {
 		this.title = title;
 	}
 
-	public byte getStudentPoint() {
-		return studentPoint;
-	}
-
-	public void setStudentPoint(byte studentPoint) {
-		this.studentPoint = studentPoint;
-	}
+	
 
 	public Date getDate() {
 		return date;
@@ -109,6 +107,15 @@ public class Translation implements Serializable {
 	public void setCompany(Company company) {
 		this.company = company;
 	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 
 	
 }

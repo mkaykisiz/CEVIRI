@@ -13,14 +13,13 @@
 		<p:layoutUnit id="menu" position="north" size="100" resizable="false"
 			closable="false">
 			<p:tabMenu activeIndex="0">
-				<p:menuitem value="Anasayfa" url="../Profile/"
-					icon="ui-icon-star" />
-				<p:menuitem value="Firma Ara" url="../AcademicSearch/"
+				<p:menuitem value="Anasayfa" url="../Profile/" icon="ui-icon-star" />
+				<p:menuitem value="Firma Ara" url="../CompanySearch/"
+					icon="ui-icon-search" />
+				<p:menuitem value="Öğrenci Ara" url="../compentSearch/"
 					icon="ui-icon-search" />
 				<p:menuitem value="Dosyalar" url="../FileList/"
 					icon="ui-icon-document" />
-					<p:menuitem value="FileUpload" url="../FileUpload/"
-					icon="ui-icon-person" />
 				<p:menuitem value="Mesajlar" url="../Messages/"
 					icon="ui-icon-person" />
 			</p:tabMenu>
@@ -33,11 +32,12 @@
 					<h2>...:::Profile:::...</h2>
 					<div id="profileframe">
 						<div id="profileimage">
-							<h:graphicImage id="image" value="#{CompanySession.company.image}" />
+							<h:graphicImage id="image"
+								value="#{AcademicSession.academic.image}" />
 						</div>
 						<div id="information">
-							<h2>#{CompanySession.company.name}
-								</h2>
+							<h2>#{AcademicSession.academic.name}
+								#{AcademicSession.academic.surname}</h2>
 						</div>
 						<div id="settings">
 							<p:commandButton id="closesessionbutton" value="Oturumu Kapat" />
@@ -48,13 +48,50 @@
 				</center>
 			</div>
 		</p:layoutUnit>
-	
-	<p:layoutUnit id="center" position="center" size="400"
-		resizable="false" closable="false" >
-		
 
+
+
+		<p:layoutUnit id="center" position="center" size="400"
+			resizable="false" closable="false">
+
+
+			<h:form id="form">
+
+
+				<p:dataTable id="message" var="msgc" value="#{messageContents}"
+					rows="25" paginator="true" emptyMessage="Mesajlar bulunamadı !">
+
+
+					<p:column headerText="Gönderen" style="width:24%">
+						<h:outputText
+							value="asasa" />
+					</p:column>
+
+					<p:column headerText="İçerik" style="width:24%">
+						<h:outputText value="#{msgc.text}" />
+					</p:column>
+
+				</p:dataTable>
+			</h:form>
+
+			<h:form>
+				<p:panel>
+					<f:facet name="header">
+		Mesaj Yaz
+		</f:facet>
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Mesaj" />
+						<p:inputTextarea value="#{messageContent.text}" />
+					</p:panelGrid>
+				</p:panel>
+				<p:commandButton value="Gönder"  ajax="false" 
+					actionListener="#{newMessageContentSend.newMessageContent()}" />
+			</h:form>
 
 		</p:layoutUnit>
-</p:layout>
+
+	</p:layout>
+
+
 </h:body>
 </html>

@@ -57,34 +57,38 @@
 			<h:form id="form">
 
 
-				<p:dataTable id="company" var="comp" value="#{companies}"
+				<p:dataTable id="academic" var="acm" value="#{academicsCompany}"
 					sortMode="multiple" rows="25" paginator="true"
-					emptyMessage="Kayıt bulunamadı !" rowKey="#{comp.mail}"
-					selection="#{AcademicSession.selectedCompany}"
+					emptyMessage="Kayıt bulunamadı !" rowKey="#{acm.mail}"
+					selection="#{CompanySession.selectedAcademic}"
 					selectionMode="single">
 					<f:facet name="header">
            Firmalar
         </f:facet>
 					<p:column sortBy="image" headerText="Resim" style="width:24%">
-						<h:graphicImage value="#{comp.image.url}" />
+						<h:graphicImage value="#{acm.image.url}" />
+					</p:column>
+					<p:column sortBy="title" headerText="Ünvan" style="width:24%">
+						<h:outputText value="#{acm.title}" />
 					</p:column>
 
 					<p:column sortBy="name" headerText="Ad" style="width:24%">
-						<h:outputText value="#{comp.name}" />
+						<h:outputText value="#{acm.name} #{acm.surname}" />
 					</p:column>
 
-					<p:column sortBy="mail" headerText="Mail" style="width:24%">
-						<h:outputText value="#{comp.mail}" />
-					</p:column>
+					
 					<p:column sortBy="telnum" headerText="Telefon" style="width:24%">
-						<h:outputText value="#{comp.telNumber}" />
+						<h:outputText value="#{acm.telNumber}" />
 					</p:column>
-					<p:column sortBy="Adress" headerText="Adres" style="width:24%">
-						<h:outputText value="#{comp.adress}" />
+					<p:column sortBy="mail" headerText="Mail" style="width:24%">
+						<h:outputText value="#{acm.mail}" />
 					</p:column>
 					<f:facet name="footer">
 						<p:commandButton id="oku" value="Profile Bak"
-							icon="ui-icon-circle-plus" action="#{AcademicSession.companyProfile()}">
+							icon="ui-icon-circle-plus" action="#{CompanySession.AcademicProfile()}">
+						</p:commandButton>
+						<p:commandButton id="oku" value="Profile Bak"
+							icon="ui-icon-circle-plus" action="#{CompanySession.MessageContents()}">
 						</p:commandButton>
 					</f:facet>
 				</p:dataTable>

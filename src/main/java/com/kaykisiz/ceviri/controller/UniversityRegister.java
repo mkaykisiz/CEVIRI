@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 
-import com.kaykisiz.ceviri.data.UniversityListProducer;
+import com.kaykisiz.ceviri.data.Academic.UniversityListProducer;
 import com.kaykisiz.ceviri.model.University;
 import com.kaykisiz.ceviri.model.University;
 

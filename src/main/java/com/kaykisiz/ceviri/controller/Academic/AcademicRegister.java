@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.controller;
+package com.kaykisiz.ceviri.controller.Academic;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
@@ -11,8 +11,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 
-import com.kaykisiz.ceviri.data.TitleListProducer;
-import com.kaykisiz.ceviri.data.UniversityListProducer;
+import com.kaykisiz.ceviri.data.Academic.TitleListProducer;
+import com.kaykisiz.ceviri.data.Academic.UniversityListProducer;
 import com.kaykisiz.ceviri.model.Academic;
 
 @Stateful
@@ -88,7 +88,7 @@ public class AcademicRegister {
 		this.universtiyListProducer = universtiyListProducer;
 	}
 
-	public String registerAcademic() {
+	public void registerAcademic() {
 		for (int i = 0; i < universtiyListProducer.getUniversities().size(); i++) {
 			if (selectedUniversityId==universtiyListProducer.getUniversities().get(i).getUniversityId()) {
 				academic.setUniversity(universtiyListProducer.getUniversities().get(i));
@@ -125,7 +125,6 @@ public class AcademicRegister {
 					FacesMessage.SEVERITY_ERROR, "Kayıt Başarısız !",
 					"Kayıt Başarısız !"));
 		}
-			return "Academic/AcademicLoginRegister/index.xhtml?faces-redirect=true";
 		
 		
 		

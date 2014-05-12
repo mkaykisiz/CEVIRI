@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.data;
+package com.kaykisiz.ceviri.data.Academic;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,14 +15,13 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import com.kaykisiz.ceviri.controller.AcademicSession;
+import com.kaykisiz.ceviri.controller.Academic.AcademicSession;
 import com.kaykisiz.ceviri.model.MessageContent;
 
 //Ünvan Listesini getirir.
 
 @RequestScoped
-
-public class MessageContentProducer implements Serializable {
+public class MessageContentforAcademicProducer implements Serializable {
 	/**
 	 * 
 	 */
@@ -35,30 +34,28 @@ public class MessageContentProducer implements Serializable {
 
 	@Inject
 	private AcademicSession academicSession;
-	
-	@Produces
+
 	@Named
-	public List<MessageContent> getMessageContents() {
+	@Produces
+	public List<MessageContent> getmessageContents() {
 		return messageContents;
-	} 
-
-
+	}
 
 	public void onStudentListChanged(
 			@Observes(notifyObserver = Reception.IF_EXISTS) final MessageContent messageContents) {
-		retrieveAllStudents();
+		retrieveAllMessageContents();
 	}
 
 	@PostConstruct
-	public void retrieveAllStudents() {
-		
+	public void retrieveAllMessageContents() {
+
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<MessageContent> criteriaQuery = criteriaBuilder
 				.createQuery(MessageContent.class);
 		Root<MessageContent> msgc = criteriaQuery.from(MessageContent.class);
-		criteriaQuery.where(criteriaBuilder.equal(msgc.get("message"), academicSession.getSelectedMessageContent().getMessage()));
-		messageContents = entityManager.createQuery(criteriaQuery).getResultList();
-		System.out.println("asadad");
+		criteriaQuery.where(criteriaBuilder.equal(msgc.get("message"),
+				academicSession.getSelectedMessage()));
+		messageContents = entityManager.createQuery(criteriaQuery)
+				.getResultList();
 	}
 }
-

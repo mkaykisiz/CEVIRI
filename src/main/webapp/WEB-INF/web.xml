@@ -31,12 +31,15 @@
 		<param-name>primefaces.THEME</param-name>
 		<param-value>bootstrap</param-value>
 	</context-param>
+
+
+
 	<listener>
 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 	</listener>
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
-		<param-value>Production</param-value>
+		<param-value>Development</param-value>
 	</context-param>
 	<filter-mapping>
 		<filter-name>PrimeFaces FileUpload Filter</filter-name>
@@ -51,4 +54,6 @@
 		</init-param>
 		
 	</filter>
+	
+	
 </web-app>

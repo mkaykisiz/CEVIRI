@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.data;
+package com.kaykisiz.ceviri.data.Academic;
 
 import java.util.List;
 

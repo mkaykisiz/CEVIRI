@@ -10,7 +10,6 @@
 		<class>com.kaykisiz.ceviri.model.Academic</class>
 		<class>com.kaykisiz.ceviri.model.Company</class>
 		<class>com.kaykisiz.ceviri.model.CoverImage</class>
-		<class>com.kaykisiz.ceviri.model.DbFile</class>
 		<class>com.kaykisiz.ceviri.model.Image</class>
 		<class>com.kaykisiz.ceviri.model.Language</class>
 		<class>com.kaykisiz.ceviri.model.MessageContent</class>

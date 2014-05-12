@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.controller;
+package com.kaykisiz.ceviri.controller.Company;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,7 +11,10 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import com.kaykisiz.ceviri.model.Academic;
 import com.kaykisiz.ceviri.model.Company;
+import com.kaykisiz.ceviri.model.Message;
+import com.kaykisiz.ceviri.model.Translation;
 
 @ManagedBean(name="CompanySession")
 @SessionScoped
@@ -22,13 +25,28 @@ public class CompanySession implements Serializable{
 	@Inject
 	private EntityManager entityManager;
 	
-	private Company company;
+	private static Company company;
 	
 	private List<Company> companys;
 
 	private String pass;
 	
 	private String mail;
+	
+	private Academic SelectedAcademic;
+	
+	private  Message selectedMessage;
+	
+	private Translation selectedTranslation;
+	
+	public String MessageContents(){
+		return "/MessageContent.xhtml";
+	}
+	
+	
+	public String AcademicProfile(){
+		return "company/Academic/CompanyPage.xhtml";
+	}
 	
 	public String login(){
 		
@@ -61,12 +79,36 @@ public class CompanySession implements Serializable{
 		this.mail = mail;
 	}
 
-	public Company getCompany() {
+	public  Company getCompany() {
 		return company;
 	}
 
-	public void setCompany(Company company) {
-		this.company = company;
+	public  void setCompany(Company company) {
+		CompanySession.company = company;
+	}
+
+	public Academic getSelectedAcademic() {
+		return SelectedAcademic;
+	}
+
+	public void setSelectedAcademic(Academic selectedAcademic) {
+		SelectedAcademic = selectedAcademic;
+	}
+
+	public Message getSelectedMessage() {
+		return selectedMessage;
+	}
+
+	public void setSelectedMessage(Message selectedMessage) {
+		this.selectedMessage = selectedMessage;
+	}
+
+	public Translation getSelectedTranslation() {
+		return selectedTranslation;
+	}
+
+	public void setSelectedTranslation(Translation selectedTranslation) {
+		this.selectedTranslation = selectedTranslation;
 	}
 	
 	

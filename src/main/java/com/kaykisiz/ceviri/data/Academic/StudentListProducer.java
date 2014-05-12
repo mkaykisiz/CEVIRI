@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.data;
+package com.kaykisiz.ceviri.data.Academic;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +15,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import com.kaykisiz.ceviri.controller.AcademicSession;
+import com.kaykisiz.ceviri.controller.Academic.AcademicSession;
 import com.kaykisiz.ceviri.model.Student;
 
 //Ünvan Listesini getirir.

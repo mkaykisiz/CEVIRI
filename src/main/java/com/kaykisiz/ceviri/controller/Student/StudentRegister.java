@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.controller;
+package com.kaykisiz.ceviri.controller.Student;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 
-import com.kaykisiz.ceviri.data.UniversityListProducer;
+import com.kaykisiz.ceviri.data.Academic.UniversityListProducer;
 import com.kaykisiz.ceviri.model.Student;
 
 @Stateful
@@ -57,7 +57,7 @@ public class StudentRegister {
 		this.universtiyListProducer = universtiyListProducer;
 	}
 
-	public String registerStudent() {
+	public void registerStudent() {
 		for (int i = 0; i < universtiyListProducer.getUniversities().size(); i++) {
 			if (selectedUniversityId == universtiyListProducer
 					.getUniversities().get(i).getUniversityId()) {
@@ -90,7 +90,7 @@ public class StudentRegister {
 					FacesMessage.SEVERITY_ERROR, "Bölüm kaydedilemedi!",
 					"Bölüm kaydedilemedi!"));
 		}
-		return "StudentLoginRegister/index.xhtml?faces-redirect=true";
+
 
 	}
 

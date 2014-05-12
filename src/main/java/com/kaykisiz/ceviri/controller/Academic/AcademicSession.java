@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.controller;
+package com.kaykisiz.ceviri.controller.Academic;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,8 +13,9 @@ import javax.persistence.criteria.Root;
 
 import com.kaykisiz.ceviri.model.Academic;
 import com.kaykisiz.ceviri.model.Company;
-import com.kaykisiz.ceviri.model.MessageContent;
+import com.kaykisiz.ceviri.model.Message;
 import com.kaykisiz.ceviri.model.Student;
+import com.kaykisiz.ceviri.model.Translation;
 
 @ManagedBean(name="AcademicSession")
 @SessionScoped
@@ -41,14 +42,20 @@ public class AcademicSession implements Serializable{
 	
 	private Company selectedCompany;
 	
-	private MessageContent selectedMessageContent;
+	private  Message selectedMessage;
+	
+	private Translation selectedTranslation;
+	
+	public String studentProfileShow(){
+		return "Academic/Profile/StudentPage.xhtml" ;
+	}
 	
 	public String companyProfile(){
 		return "Academic/Company/CompanyPage.xhtml";
 	}
 	
 	public String MessageContents(){
-		return "Academic/MessageContent.xhtml";
+		return "/MessageContent.xhtml";
 	}
 	
 	public String login(){
@@ -107,13 +114,23 @@ public class AcademicSession implements Serializable{
 		this.selectedCompany = selectedCompany;
 	}
 
-	public MessageContent getSelectedMessageContent() {
-		return selectedMessageContent;
+	public Message getSelectedMessage() {
+		return selectedMessage;
 	}
 
-	public void setSelectedMessageContent(MessageContent selectedMessageContent) {
-		this.selectedMessageContent = selectedMessageContent;
+	public void setSelectedMessage(Message selectedMessage) {
+		this.selectedMessage = selectedMessage;
 	}
+
+	public Translation getSelectedTranslation() {
+		return selectedTranslation;
+	}
+
+	public void setSelectedTranslation(Translation selectedTranslation) {
+		this.selectedTranslation = selectedTranslation;
+	}
+
+
 	
 	
 	

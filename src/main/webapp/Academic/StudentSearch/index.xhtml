@@ -55,6 +55,8 @@
 
 			<h:form id="form">
 
+	<p:messages id="studentAddedbyAcademicMessages" showDetail="false"
+							autoUpdate="true" closable="true" />
 
 				<p:dataTable id="students" var="stud" value="#{students}"
 					sortMode="multiple" rows="25" paginator="true"
@@ -80,8 +82,12 @@
 						<h:outputText value="#{stud.telNumber}" />
 					</p:column>
 					 <f:facet name="footer">
-						<p:commandButton id="selectButton" value="Ekle" icon="ui-icon-circle-plus"
-							 action="#{studentAddedbyAcademic.studentAddedbyAcademic()}">							
+						<p:commandButton id="selectButton" value="Ekle"
+							icon="ui-icon-circle-plus"
+							action="#{studentAddedbyAcademic.studentAddedbyAcademic()}">
+						</p:commandButton>
+						<p:commandButton id="showprofileButton" value="Profiline Bak" icon="ui-icon-circle-plus"
+							 action="#{AcademicSession.studentProfileShow()}">							
 						</p:commandButton>
 					</f:facet>
 

@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.data;
+package com.kaykisiz.ceviri.data.Company;
 
 import java.util.List;
 
@@ -14,36 +14,37 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import com.kaykisiz.ceviri.model.Title;
+import com.kaykisiz.ceviri.model.Academic;
+
 
 //Ünvan Listesini getirir.
 
 @RequestScoped
-public class TitleListProducer {
-
+public class AcademicListProducer {
+	
 	@Inject
 	private EntityManager entityManager;
 
-	private List<Title> titles;
+	private List<Academic> academics;
 
 	@Produces
 	@Named
-	public List<Title> getTitles() {
-		return titles;
+	public List<Academic> getAcademicsCompany() {
+		return academics;
 	} 
 
 	public void onTitleListChanged(
-			@Observes(notifyObserver = Reception.IF_EXISTS) final Title titles) {
-		retrieveAllTitles();
+			@Observes(notifyObserver = Reception.IF_EXISTS) final Academic companies) {
+		retrieveAllCompanies();
 	}
 
 	@PostConstruct
-	public void retrieveAllTitles() {
+	public void retrieveAllCompanies() {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Title> criteriaQuery = criteriaBuilder
-				.createQuery(Title.class);
-		Root<Title> titl = criteriaQuery.from(Title.class);
-		criteriaQuery.select(titl);
-		titles = entityManager.createQuery(criteriaQuery).getResultList();
+		CriteriaQuery<Academic> criteriaQuery = criteriaBuilder
+				.createQuery(Academic.class);
+		Root<Academic> comp = criteriaQuery.from(Academic.class);
+		criteriaQuery.select(comp);
+		academics = entityManager.createQuery(criteriaQuery).getResultList();
 	}
 }

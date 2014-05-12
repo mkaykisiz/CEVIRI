@@ -44,7 +44,7 @@ public class Company implements Serializable {
 	private String telNumber;
 	
 	@Column(length=250)
-	@Size(min=6, max = 16,message="Şifre En az 20 En fazla 250 karakter olmalıdır.")
+	@Size(min=6, max =250,message="Adres En az 20 En fazla 250 karakter olmalıdır.")
 	private String adress;
 
 	@Column(length=2)

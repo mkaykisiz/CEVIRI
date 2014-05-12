@@ -13,14 +13,13 @@
 		<p:layoutUnit id="menu" position="north" size="100" resizable="false"
 			closable="false">
 			<p:tabMenu activeIndex="0">
-				<p:menuitem value="Anasayfa" url="../Profile/"
-					icon="ui-icon-star" />
-				<p:menuitem value="Firma Ara" url="../AcademicSearch/"
+				<p:menuitem value="Anasayfa" url="../Profile/" icon="ui-icon-star" />
+				<p:menuitem value="Firma Ara" url="../CompanySearch/"
+					icon="ui-icon-search" />
+				<p:menuitem value="Öğrenci Ara" url="../compentSearch/"
 					icon="ui-icon-search" />
 				<p:menuitem value="Dosyalar" url="../FileList/"
 					icon="ui-icon-document" />
-					<p:menuitem value="FileUpload" url="../FileUpload/"
-					icon="ui-icon-person" />
 				<p:menuitem value="Mesajlar" url="../Messages/"
 					icon="ui-icon-person" />
 			</p:tabMenu>
@@ -33,7 +32,8 @@
 					<h2>...:::Profile:::...</h2>
 					<div id="profileframe">
 						<div id="profileimage">
-							<h:graphicImage id="image" value="#{CompanySession.company.image}" />
+							<h:graphicImage id="image"
+								value="" />
 						</div>
 						<div id="information">
 							<h2>#{CompanySession.company.name}
@@ -48,13 +48,45 @@
 				</center>
 			</div>
 		</p:layoutUnit>
-	
-	<p:layoutUnit id="center" position="center" size="400"
-		resizable="false" closable="false" >
-		
 
+
+
+		<p:layoutUnit id="center" position="center" size="400"
+			resizable="false" closable="false">
+
+
+			<h:form id="form">
+
+
+				<p:dataTable id="message" var="msg" value="#{companyMessages}"
+					sortMode="multiple" rows="25" paginator="true"
+					emptyMessage="Kayıt bulunamadı !" rowKey="#{msg.id}"
+					selection="#{CompanySession.selectedMessage}"
+					selectionMode="single">
+					<f:facet name="header">
+           Mesajlar
+        </f:facet>
+
+					<p:column sortBy="Konu" headerText="Konu" style="width:24%">
+						<h:outputText value="#{msg.title}" />
+					</p:column>
+
+					<p:column sortBy="Şirket" headerText="Akademisyen" style="width:24%">
+						<h:outputText value="#{msg.academic.name} #{msg.academic.surname}" />
+					</p:column>
+
+					<f:facet name="footer">
+						<p:commandButton id="oku"
+							action="#{CompanySession.MessageContents()}" value="Mesaj Oku" />
+
+					</f:facet>
+				</p:dataTable>
+			</h:form>
 
 		</p:layoutUnit>
-</p:layout>
+
+	</p:layout>
+
+
 </h:body>
 </html>

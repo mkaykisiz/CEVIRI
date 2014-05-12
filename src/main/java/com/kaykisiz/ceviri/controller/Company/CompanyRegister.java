@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.controller;
+package com.kaykisiz.ceviri.controller.Company;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
@@ -35,11 +35,12 @@ public class CompanyRegister {
 	}
 
 
-	public String registerCompany() {
+	public void registerCompany() {
 	
 		try {
 			entityManager.persist(company);
 			companyEvent.fire(company);
+			
 			facesContext.addMessage(null, new FacesMessage(
 					FacesMessage.SEVERITY_INFO,
 					"Firma kaydı başarıyla yapıldı.", company.getName() + " "
@@ -54,7 +55,6 @@ public class CompanyRegister {
 					FacesMessage.SEVERITY_ERROR, "Firma kaydedilemedi!",
 					"Firma kaydedilemedi!"));
 		}
-		return "CompanyLoginRegister/index.xhtml?faces-redirect=true";
 
 	}
 

@@ -61,7 +61,7 @@ public class Student implements Serializable {
 	@JoinColumn(name = "coverImages_id")
 	private CoverImage coverImage;
 
-	@OneToMany(mappedBy="studentAcademic")
+	@OneToMany(mappedBy="studentAcademic",fetch=FetchType.EAGER)
 	private List<AcademicStudent> academicsStudents;
 	
 	@OneToMany(mappedBy = "studentLanguage")

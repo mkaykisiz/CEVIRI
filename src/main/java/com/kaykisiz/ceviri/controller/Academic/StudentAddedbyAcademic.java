@@ -1,4 +1,4 @@
-package com.kaykisiz.ceviri.controller;
+package com.kaykisiz.ceviri.controller.Academic;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 
-import com.kaykisiz.ceviri.data.StudentListProducer;
+import com.kaykisiz.ceviri.data.Academic.StudentListProducer;
 import com.kaykisiz.ceviri.model.AcademicStudent;
 
 ;
@@ -72,7 +72,7 @@ public class StudentAddedbyAcademic {
 					FacesMessage.SEVERITY_ERROR, "Kayıt Başarısız !",
 					"Kayıt Başarısız !"));
 		}
-		return "/Academic/Profile/index.xhtml?faces-redirect=true";
+		return "/Academic/StudentSearch/index.xhtml?faces-redirect=true";
 
 	}
 
