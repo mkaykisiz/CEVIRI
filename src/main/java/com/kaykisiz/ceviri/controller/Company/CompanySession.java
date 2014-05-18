@@ -33,20 +33,21 @@ public class CompanySession implements Serializable{
 	
 	private String mail;
 	
-	private Academic SelectedAcademic;
+	private static Academic SelectedAcademic;
 	
-	private  Message selectedMessage;
+	private static Message selectedMessage;
 	
-	private Translation selectedTranslation;
+	private static Translation selectedTranslation;
 	
 	public String MessageContents(){
-		return "/MessageContent.xhtml";
+		return "/Company/Messages/MessageContent.xhtml?faces-redirect=true";
 	}
 	
 	
 	public String AcademicProfile(){
-		return "company/Academic/CompanyPage.xhtml";
+		return "/Company/Profile/AcademicProfile.xhtml?faces-redirect=true";
 	}
+	
 	
 	public String login(){
 		
@@ -58,9 +59,9 @@ public class CompanySession implements Serializable{
 		companys = entityManager.createQuery(criteriaQuery).getResultList();
 		
 		if(!companys.isEmpty() && companys.get(0).getMail().equals(mail) && companys.get(0).getParola().equals(pass))
-		company=companys.get(0);
-		
-		return "../Profile/index.xhtml";
+		{		company=companys.get(0);
+	}
+		return "/Company/Profile/index.xhtml?faces-redirect=true";
 	}
 
 	public String getPass() {
@@ -100,7 +101,7 @@ public class CompanySession implements Serializable{
 	}
 
 	public void setSelectedMessage(Message selectedMessage) {
-		this.selectedMessage = selectedMessage;
+		CompanySession.selectedMessage = selectedMessage;
 	}
 
 	public Translation getSelectedTranslation() {
@@ -108,7 +109,7 @@ public class CompanySession implements Serializable{
 	}
 
 	public void setSelectedTranslation(Translation selectedTranslation) {
-		this.selectedTranslation = selectedTranslation;
+		CompanySession.selectedTranslation = selectedTranslation;
 	}
 	
 	

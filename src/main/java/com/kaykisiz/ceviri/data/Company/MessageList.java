@@ -47,7 +47,7 @@ public class MessageList {
 		CriteriaQuery<Message> criteriaQuery = criteriaBuilder
 				.createQuery(Message.class);
 		Root<Message> msg = criteriaQuery.from(Message.class);
-		criteriaQuery.where(criteriaBuilder.equal(msg.get("academic"), companySession.getCompany()));
+		criteriaQuery.where(criteriaBuilder.equal(msg.get("company"), companySession.getCompany()));
 		messages = entityManager.createQuery(criteriaQuery).getResultList();
 	}
 }

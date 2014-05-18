@@ -23,11 +23,11 @@ import com.kaykisiz.ceviri.model.Translation;
 		@Inject
 		private EntityManager entityManager;
 		
-		private Student student;
+		private static Student student;
 		
 		private List<Student> students;
 		
-		private Translation selectedTranslation;
+		private static Translation selectedTranslation;
 
 		private String pass;
 		
@@ -69,7 +69,7 @@ import com.kaykisiz.ceviri.model.Translation;
 		}
 
 		public void setStudent(Student student) {
-			this.student = student;
+			StudentSession.student = student;
 		}
 
 		public Translation getSelectedTranslation() {
@@ -77,7 +77,7 @@ import com.kaykisiz.ceviri.model.Translation;
 		}
 
 		public void setSelectedTranslation(Translation selectedTranslation) {
-			this.selectedTranslation = selectedTranslation;
+			StudentSession.selectedTranslation = selectedTranslation;
 		}
 		
 		

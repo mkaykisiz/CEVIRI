@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13999293944080" configfile="/CEVIRI/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Academic/AcademicLoginRegister/index.xhtml" x="122" y="178" id="pf13999294235091" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13999294235092" path="/Academic/AcademicLoginRegister/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Academic/Profile/index.xhtml" x="338" y="178" id="pf13999294235093" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13999294235092" path="/Academic/Profile/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Academic/Messages/index.xhtml" x="122" y="562" id="pf13999294235094" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf139993976589214 pf139993976589215" path="/Academic/Messages/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Academic/Messages/MessageContent.xhtml" x="122" y="946" id="pf13999294235096" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" path="/Academic/Messages/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Student/StudentLoginRegister/index.xhtml" x="122" y="1330" id="pf13999294235108" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf13999294235109" path="Student/StudentLoginRegister/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Student/Profile/index.xhtml" x="338" y="1330" id="pf139992942351010" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf13999294235109" path="Student/Profile/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Academic/Messages/MessageContent.xhtml" x="338" y="562" id="pf139993976589216" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf139993976589214 pf139993976589215" path="/Academic/Messages/MessageContent.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Academic/CompanySearch/index.xhtml" x="122" y="2098" id="pf139993976589217" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf139993976589218" path="/Academic/CompanySearch/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Academic/Profile/CompanyPage.xhtml" x="338" y="2098" id="pf139993976589219" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf139993976589218" path="/Academic/Profile/CompanyPage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Academic/StudentSearch/index.xhtml" x="122" y="2482" id="pf139993976589220" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf139993976589321" path="/Academic/StudentSearch/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Academic/Profile/StudentPage.xhtml" x="338" y="2482" id="pf139993976589322" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf139993976589321" path="/Academic/Profile/StudentPage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Company/CompanyLoginRegister/index.xhtml" id="pf13999433487460" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf13999433487461" path="Company/CompanyLoginRegister/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Company/Profile/index.xhtml" id="pf13999433487462" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf13999433487461" path="/Company/Profile/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Company/AcademicSearch/index.xhtml" id="pf13999433487463" referenceLink="//@navigationRule.8/@fromViewId|" outlinks="pf13999433487464 pf13999433487465" path="Company/AcademicSearch/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Company/Profile/AcademicProfile.xhtml" id="pf13999433487466" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf13999433487464" path="/Company/Profile/AcademicProfile.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Company/Messages/NewMessage.xhtml" id="pf13999433487467" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" inlinks="pf13999433487465" path="/Company/Messages/index.xhtml"/>
+  <links id="pf13999294235092" target="pf13999294235093" source="pf13999294235091" outcome="login" fromaction="#{AcademicSession.login}"/>
+  <links id="pf13999294235109" target="pf139992942351010" source="pf13999294235108" outcome="login" redirect="true" fromaction="#{StudentSession.login()}"/>
+  <links id="pf139993976589214" target="pf139993976589216" source="pf13999294235094" outcome="msgList" redirect="true" fromaction="#{AcademicSession.MessageContents}"/>
+  <links id="pf139993976589218" target="pf139993976589219" source="pf139993976589217" outcome="CompanyProfile" redirect="true" fromaction="#{AcademicSession.companyProfile}"/>
+  <links id="pf139993976589321" target="pf139993976589322" source="pf139993976589220" outcome="studentProfileShow" redirect="true" fromaction="#{AcademicSession.studentProfileShow}"/>
+  <links id="pf139993976589215" target="pf139993976589216" source="pf13999294235094" outcome="content" redirect="true" fromaction="#{AcademicSession.MessageContents}"/>
+  <links id="pf13999433487461" target="pf13999433487462" source="pf13999433487460" outcome="loginCompany" redirect="true" fromaction="#{CompanySession.login}"/>
+  <links id="pf13999433487464" target="pf13999433487466" source="pf13999433487463" outcome="AcademicProfile" redirect="true" fromaction="#{CompanySession.AcademicProfile}"/>
+  <links id="pf13999433487465" target="pf13999433487467" source="pf13999433487463" outcome="NewMessage" redirect="true" fromaction="#{newMessage.NewMessageCreate}"/>
+</pageflow:Pageflow>

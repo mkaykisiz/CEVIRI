@@ -57,7 +57,7 @@ public class StudentListProducer implements Serializable {
 		Root<Student> std = criteriaQuery.from(Student.class);
 		criteriaQuery.where(criteriaBuilder.equal(std.get("university"), academicSession.getAcademic().getUniversity().getUniversityId()));
 		students = entityManager.createQuery(criteriaQuery).getResultList();
-		System.out.println("asadad");
+	
 	}
 }
 

@@ -3,6 +3,7 @@ package com.kaykisiz.ceviri.controller.Academic;
 import java.io.Serializable;
 import java.util.List;
 
+
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
@@ -38,24 +39,24 @@ public class AcademicSession implements Serializable{
 	
 	private String mail;
 	
-	private  Student selectedStudent;
+	private  static Student selectedStudent;
 	
-	private Company selectedCompany;
+	private static Company selectedCompany;
 	
-	private  Message selectedMessage;
+	private static Message selectedMessage;
 	
-	private Translation selectedTranslation;
+	private static Translation selectedTranslation;
 	
 	public String studentProfileShow(){
-		return "Academic/Profile/StudentPage.xhtml" ;
+		return "/Academic/Profile/StudentPage.xhtml" ;
 	}
 	
 	public String companyProfile(){
-		return "Academic/Company/CompanyPage.xhtml";
+		return "/Academic/Profile/CompanyPage.xhtml?faces-redirect=true";
 	}
 	
 	public String MessageContents(){
-		return "/MessageContent.xhtml";
+		return "/Academic/Messages/MessageContent.xhtml?faces-redirect=true";
 	}
 	
 	public String login(){
@@ -69,9 +70,10 @@ public class AcademicSession implements Serializable{
 		
 		if(!academics.isEmpty() && academics.get(0).getMail().equals(mail) && academics.get(0).getParola().equals(pass)){
 		academic=academics.get(0);
-
 		}
-		return "../Profile/index.xhtml";
+	
+
+		return "/Academic/Profile/index.xhtml?faces-redirect=true";
 	}
 
 	public String getPass() {
@@ -103,7 +105,7 @@ public class AcademicSession implements Serializable{
 	}
 
 	public void setSelectedStudent(Student selectedStudent) {
-		this.selectedStudent = selectedStudent;
+		AcademicSession.selectedStudent = selectedStudent;
 	}
 
 	public Company getSelectedCompany() {
@@ -111,7 +113,7 @@ public class AcademicSession implements Serializable{
 	}
 
 	public void setSelectedCompany(Company selectedCompany) {
-		this.selectedCompany = selectedCompany;
+		AcademicSession.selectedCompany = selectedCompany;
 	}
 
 	public Message getSelectedMessage() {
@@ -119,7 +121,7 @@ public class AcademicSession implements Serializable{
 	}
 
 	public void setSelectedMessage(Message selectedMessage) {
-		this.selectedMessage = selectedMessage;
+		AcademicSession.selectedMessage = selectedMessage;
 	}
 
 	public Translation getSelectedTranslation() {
@@ -127,7 +129,7 @@ public class AcademicSession implements Serializable{
 	}
 
 	public void setSelectedTranslation(Translation selectedTranslation) {
-		this.selectedTranslation = selectedTranslation;
+		AcademicSession.selectedTranslation = selectedTranslation;
 	}
 
 

@@ -9,41 +9,50 @@
 
 
 	<navigation-rule>
-		<from-view-id>Academic/AcademicLoginRegister/index.xhtml</from-view-id>
+		<from-view-id>/Academic/AcademicLoginRegister/index.xhtml</from-view-id>
 		<navigation-case>
-		 <from-action>#{AcademicSession.login()}</from-action>
+		 	<from-action>#{AcademicSession.login}</from-action>
 			<from-outcome>login</from-outcome>
-			<to-view-id>Academic/Profile/index.xhtml</to-view-id>
-			<redirect />
+			<to-view-id>/Academic/Profile/index.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<from-view-id>Academic/StudentSearch/index.xhtml</from-view-id>
+		<from-view-id>/Academic/Messages/index.xhtml</from-view-id>
 		<navigation-case>
-		 <from-action>#{studentAddedbyAcademic.studentAddedbyAcademic()}</from-action>
-			<from-outcome>login</from-outcome>
-			<to-view-id>Academic/Profile/index.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<from-view-id>Academic/Messages/index.xhtml</from-view-id>
-		<navigation-case>
-		 <from-action>#{AcademicSession.MessageContents()}</from-action>
+		 <from-action>#{AcademicSession.MessageContents}</from-action>
 			<from-outcome> msgList</from-outcome>
-			<to-view-id>Academic/Messages/MessageContent.xhtml</to-view-id>
+			<to-view-id>/Academic/Messages/MessageContent.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
-		<from-view-id>Academic/Messages/MessageContent.xhtml</from-view-id>
+		<from-view-id>/Academic/CompanySearch/index.xhtml</from-view-id>
 		<navigation-case>
-		 <from-action>#{newMessageContentSend.newMessageContent()}</from-action>
+		 <from-action>#{AcademicSession.companyProfile}</from-action>
+			<from-outcome> CompanyProfile</from-outcome>
+			<to-view-id>/Academic/Profile/CompanyPage.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/Academic/StudentSearch/index.xhtml</from-view-id>
+		<navigation-case>
+		 <from-action>#{AcademicSession.studentProfileShow}</from-action>
+			<from-outcome> studentProfileShow</from-outcome>
+			<to-view-id>/Academic/Profile/StudentPage.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/Academic/Messages/index.xhtml</from-view-id>
+		<navigation-case>
+		 <from-action>#{AcademicSession.MessageContents}</from-action>
 			<from-outcome> content</from-outcome>
-			<to-view-id>Academic/Messages/MessageContent.xhtml</to-view-id>
+			<to-view-id>/Academic/Messages/MessageContent.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
@@ -61,13 +70,32 @@
 	
 	
 
-
 	<navigation-rule>
 		<from-view-id>Company/CompanyLoginRegister/index.xhtml</from-view-id>
 		<navigation-case>
-		 <from-action>#{CompanySession.login()}</from-action>
-			<from-outcome>login</from-outcome>
-			<to-view-id>Company/Profile/index.xhtml</to-view-id>
+		 <from-action>#{CompanySession.login}</from-action>
+			<from-outcome>loginCompany</from-outcome>
+			<to-view-id>/Company/Profile/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>Company/AcademicSearch/index.xhtml</from-view-id>
+		<navigation-case>
+		 <from-action>#{CompanySession.AcademicProfile}</from-action>
+			<from-outcome>AcademicProfile</from-outcome>
+			<to-view-id>/Company/Profile/AcademicProfile.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>Company/AcademicSearch/index.xhtml</from-view-id>
+		<navigation-case>
+		 <from-action>#{newMessage.NewMessageCreate}</from-action>
+			<from-outcome>NewMessage</from-outcome>
+			<to-view-id>/Company/Messages/index.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>

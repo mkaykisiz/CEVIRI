@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -6,95 +7,190 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<link rel="stylesheet" type="text/css" href="../../css/profile.css" />
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-language" content="en" />
+	<meta name="robots" content="noindex,nofollow" />
+	<link rel="stylesheet" media="screen,projection" type="text/css"
+		href="../../css/reset.css" />
+	<!-- RESET -->
+	<link rel="stylesheet" media="screen,projection" type="text/css"
+		href="../../css/main.css" />
+	<!-- MAIN STYLE SHEET -->
+	<link rel="stylesheet" media="screen,projection" type="text/css"
+		href="../../css/2col.css" title="2col" />
+	<!-- DEFAULT: 2 COLUMNS -->
+	<link rel="alternate stylesheet" media="screen,projection"
+		type="text/css" href="../../css/1col.css" title="1col" />
+	<!-- ALTERNATE: 1 COLUMN -->
+	<!--[if lte IE 6]><link rel="stylesheet" media="screen,projection" type="text/css" href="css/main-ie6.css" /><![endif]-->
+	<!-- MSIE6 -->
+	<link rel="stylesheet" media="screen,projection" type="text/css"
+		href="../../css/styleana.css" />
+	<!-- GRAPHIC THEME -->
+	<link rel="stylesheet" media="screen,projection" type="text/css"
+		href="../../css/mystyle.css" />
+	<!-- WRITE YOUR CSS CODE HERE -->
+	<script type="text/javascript" src="../../js/jquery.js"></script>
+	<script type="text/javascript" src="../../js/switcher.js"></script>
+	<script type="text/javascript" src="../../js/toggle.js"></script>
+	<script type="text/javascript" src="../../js/ui.core.js"></script>
+	<script type="text/javascript" src="../../js/ui.tabs.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$(".tabs > ul").tabs();
+	});
+	</script>
+	<title>Çevirmen Bul</title>
 </h:head>
+
 <h:body>
-	<p:layout fullPage="true">
-		<p:layoutUnit id="menu" position="north" size="100" resizable="false"
-			closable="false">
-			<p:tabMenu activeIndex="0">
-				<p:menuitem value="Anasayfa" url="../Profile/" icon="ui-icon-star" />
-				<p:menuitem value="Firma Ara" url="../CompanySearch/"
-					icon="ui-icon-search" />
-				<p:menuitem value="Öğrenci Ara" url="../StudentSearch/"
-					icon="ui-icon-search" />
-				<p:menuitem value="Dosyalar" url="../FileList/"
-					icon="ui-icon-document" />
-				<p:menuitem value="Mesajlar" url="../Messages/"
-					icon="ui-icon-person" />
-			</p:tabMenu>
-		</p:layoutUnit>
+	<div id="main">
 
-		<p:layoutUnit id="profile" position="east" size="300"
-			resizable="false" closable="false">
-			<div id="profile">
-				<center>
-					<h2>...:::Profile:::...</h2>
-					<div id="profileframe">
-						<div id="profileimage">
-							<h:graphicImage id="image"
-								value="#{AcademicSession.academic.image}" />
-						</div>
-						<div id="information">
-							<h2>#{AcademicSession.academic.name}
-								#{AcademicSession.academic.surname}</h2>
-						</div>
-						<div id="settings">
-							<p:commandButton id="closesessionbutton" value="Oturumu Kapat" />
-							<br />
-							<p:commandButton id="Settingsbutton" value="Ayarlari Duzenle" />
-						</div>
-					</div>
-				</center>
+		<!-- Tray -->
+		<div id="tray" class="box">
+
+			<p class="f-left box">
+
+				<!-- Switcher -->
+				<span class="f-left" id="switcher"> <a href="#" rel="1col"
+					class="styleswitch ico-col1" title="Display one column"><img
+						src="../../design/switcher-1col.gif" alt="1 Column" /></a> <a
+					href="#" rel="2col" class="styleswitch ico-col2"
+					title="Display two columns"><img
+						src="../../design/switcher-2col.gif" alt="2 Columns" /></a>
+				</span> Project: <strong>Mehmet KAYKISIZ</strong>
+
+			</p>
+
+			<p class="f-right">
+				User: <strong><a href="../Profile/index.xhtml">Administrator</a></strong>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><a
+					href="../../index.xhtml" id="logout">Log out</a></strong>
+			</p>
+
+		</div>
+		<!--  /tray -->
+
+		<hr class="noscreen" />
+
+		<!-- Columns -->
+		<div id="cols" class="box">
+
+			<!-- Aside (Left Column) -->
+			<div id="aside" class="box">
+
+				<div class="padding box">
+
+					<!-- Logo (Max. width = 200px) -->
+					<p id="logo">
+						<a href="#logooooooo"><img src="../../images/abi.jpeg"
+							alt="Our logo" title="kullanıcı" /></a>
+					</p>
+
+				</div>
+				<!-- /padding -->
+
+				<ul class="box">
+					<li><a href="../Profile/index.xhtml">AnaSayfa</a></li>
+					<li><a href="../CompanySearch/index.xhtml">Firma Ara</a></li>
+					<li><a href="../StudentSearch/index.xhtml">Öğrenci Ara</a></li>
+					<li><a href="../Messages/index.xhtml">Mesajlar</a></li>
+					<li><a>Ayarlar</a>
+						<ul>
+							<li><a href="../Settings/CoverPhoto.xhtml">Kapak Resmi </a></li>
+							<li><a href="../Settings/profilePhoto.xhtml">Profil
+									Resmi</a></li>
+							<li><a href="../Settings/settings.xhtml">Genel ayarlar</a></li>
+						</ul></li>
+					<li><a href="../FileList/index.xhtml">Dosyalar</a></li>
+				</ul>
+
 			</div>
-		</p:layoutUnit>
+			<!-- /aside -->
 
-		<p:layoutUnit id="center" position="center" size="400"
-			resizable="false" closable="false">
-			
+			<hr class="noscreen" />
 
-			<h:form id="form">
+			<!-- Content (Right Column) -->
+			<div id="content" class="box">
 
-	<p:messages id="studentAddedbyAcademicMessages" showDetail="false"
-							autoUpdate="true" closable="true" />
+				<h1>Öğrenciler</h1>
 
-				<p:dataTable id="students" var="stud" value="#{students}"
-					sortMode="multiple" rows="25" paginator="true"
-					emptyMessage="Kayıt bulunamadı !" rowKey="#{stud.mail}" selection="#{AcademicSession.selectedStudent}" selectionMode="single">
-					<f:facet name="header">
+
+				<h:form id="form">
+				
+					<p:messages id="studentAddedbyAcademicMessages" showDetail="false"
+						autoUpdate="true" closable="true" />
+
+					<p:dataTable id="students" var="stud" value="#{students}"
+						sortMode="multiple" rows="25" paginator="true"
+						emptyMessage="Kayıt bulunamadı !" rowKey="#{stud.mail}">
+						<f:facet name="header">
            Öğrenciler
         </f:facet>
-					<p:column sortBy="image" headerText="Resim" style="width:24%">
-						<h:graphicImage value="#{stud.image.url}" />
-					</p:column>
+						<p:column sortBy="image" headerText="Resim" style="width:24%">
+							<h:graphicImage value="#{stud.image.url}" />
+						</p:column>
 
-					<p:column sortBy="name" headerText="Ad" style="width:24%">
-						<h:outputText value="#{stud.name}" />
-					</p:column>
+						<p:column sortBy="name" headerText="Ad" style="width:24%">
+							<h:outputText value="#{stud.name}" />
+						</p:column>
 
-					<p:column sortBy="surname" headerText="Soyad" style="width:24%">
-						<h:outputText value="#{stud.surname}" />
-					</p:column>
-					<p:column sortBy="mail" headerText="Mail" style="width:24%">
-						<h:outputText value="#{stud.mail}" />
-					</p:column>
-					<p:column sortBy="telnum" headerText="Telefon" style="width:24%">
-						<h:outputText value="#{stud.telNumber}" />
-					</p:column>
-					 <f:facet name="footer">
-						<p:commandButton id="selectButton" value="Ekle"
-							icon="ui-icon-circle-plus"
-							action="#{studentAddedbyAcademic.studentAddedbyAcademic()}">
-						</p:commandButton>
-						<p:commandButton id="showprofileButton" value="Profiline Bak" icon="ui-icon-circle-plus"
-							 action="#{AcademicSession.studentProfileShow()}">							
-						</p:commandButton>
-					</f:facet>
+						<p:column sortBy="surname" headerText="Soyad" style="width:24%">
+							<h:outputText value="#{stud.surname}" />
+						</p:column>
+						<p:column sortBy="mail" headerText="Mail" style="width:24%">
+							<h:outputText value="#{stud.mail}" />
+						</p:column>
+						<p:column sortBy="telnum" headerText="Telefon" style="width:24%">
+							<h:outputText value="#{stud.telNumber}" />
+						</p:column>
+						<p:column>
+							<p:commandButton id="selectButton" value="Ekle"
+								icon="ui-icon-circle-plus"
+								action="#{studentAddedbyAcademic.studentAddedbyAcademic()}">
+							</p:commandButton>
+						</p:column>
+						<p:column>
+							<p:commandButton id="showprofileButton" value="Profiline Bak"
+								icon="ui-icon-circle-plus"
+								action="#{AcademicSession.studentProfileShow()}">
+								<f:setPropertyActionListener value="#{stud}"
+									target="#{AcademicSession.selectedStudent}" />
+							</p:commandButton>
+						</p:column>
 
-				</p:dataTable>
-			</h:form>
-		</p:layoutUnit>
+					</p:dataTable>
+				</h:form>
 
-	</p:layout>
+
+			</div>
+			<!-- /content -->
+
+		</div>
+		<!-- /cols -->
+
+		<hr class="noscreen" />
+
+
+		<!-- Footer -->
+		<div id="footer" class="box">
+
+			<p class="f-left">
+				&copy; 2014 <a href="#">Your Company</a>, All Rights Reserved &reg;
+			</p>
+
+			<p class="f-right">
+				Yapan <a href="http://www.kaykisiz.com/">Mehmet KAYKISIZ</a>
+			</p>
+
+		</div>
+		<!-- /footer -->
+
+	</div>
+	<!-- /main -->
 </h:body>
 </html>
+
+
+

@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Girişve Kayıt Ekranı</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description"
@@ -16,7 +16,8 @@
 	<meta name="author" content="Codrops" />
 	<link rel="stylesheet" type="text/css" href="../../css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="../../css/style2.css" />
-	<link rel="stylesheet" type="text/css" href="../../css/animate-custom.css" />
+	<link rel="stylesheet" type="text/css"
+		href="../../css/animate-custom.css" />
 </h:head>
 <h:body>
 	<div class="container">
@@ -96,7 +97,7 @@
 									itemValue="#{_univ.universityId}" />
 							</p:selectOneMenu>
 						</p>
-						
+
 						<p class="signin button">
 							<h:commandButton value="KAYIT OL"
 								action="#{studentRegister.registerStudent()}" />

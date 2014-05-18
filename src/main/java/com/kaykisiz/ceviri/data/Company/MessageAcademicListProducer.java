@@ -24,8 +24,7 @@ public class MessageAcademicListProducer {
 	@Inject
 	private EntityManager entityManager;
 	
-	@Inject
-	private MessageList companyProducer;
+
 
 	private List<Academic> academics;
 	
